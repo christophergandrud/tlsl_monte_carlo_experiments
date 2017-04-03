@@ -41,9 +41,13 @@ for (u in 1:nsims) {
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
                 mutate(lag_wy = dplyr::lag(wy, order_by = id))
 
+   sw <- merge(sw, comb)
+
     # Estimate models
     s3_under <- lm(y ~ x1 + lag_wy, data = sw)
     s3_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
+
+   # s3_region <- lm(y ~ x1 + x2 + as.factor(location) + lag_wy, data = sw)
 
     # Save estimates
     s3_under_list <- results_combiner(s3_under_list, s3_under)
@@ -52,9 +56,9 @@ for (u in 1:nsims) {
 }
 
 # Plot the results lag p-value (UNDER)
-ps_df <- extract_element(s3_under_list, 'pvalue', 'lag_wy')
+ps_df_u <- extract_element(s3_under_list, 'pvalue', 'lag_wy')
 
-s3_p_under <- ggplot(ps_df, aes(value)) +
+s3_p_under <- ggplot(ps_df_u, aes(value)) +
     geom_density() +
     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
     geom_vline(xintercept = 0.05, linetype = 'dashed') +
@@ -62,9 +66,9 @@ s3_p_under <- ggplot(ps_df, aes(value)) +
     ggtitle('Scenario 3 (underestimate)')
 
 # Plot coefficients
-coef3_interval <- slim_coefs(s3_under_list)
+coef3_interval_u <- slim_coefs(s3_under_list)
 
-s3_coef_under <- ggplot(coef3_interval, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
+s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = c(2), linetype = 'dotted') +
     geom_hline(yintercept = 0, colour = 'red') +
@@ -72,9 +76,9 @@ s3_coef_under <- ggplot(coef3_interval, aes(variable, qi_median, ymin = qi_min, 
     ggtitle('Scenario 3 (underestimate)')
 
 # Plot the results lag p-value (OVER)
-ps_df <- extract_element(s3_over_list, 'pvalue', 'lag_wy')
+ps_df_o <- extract_element(s3_over_list, 'pvalue', 'lag_wy')
 
-s3_p_over <- ggplot(ps_df, aes(value)) +
+s3_p_over <- ggplot(ps_df_o, aes(value)) +
     geom_density() +
     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
     geom_vline(xintercept = 0.05, linetype = 'dashed') +
@@ -82,9 +86,9 @@ s3_p_over <- ggplot(ps_df, aes(value)) +
     ggtitle('Scenario 3 (overestimate)')
 
 # Plot coefficients
-coef3_interval <- slim_coefs(s3_over_list)
+coef3_interval_o <- slim_coefs(s3_over_list)
 
-s3_coef_over <- ggplot(coef3_interval, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
+s3_coef_over <- ggplot(coef3_interval_o, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
     geom_hline(yintercept = 0, colour = 'red') +

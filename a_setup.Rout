@@ -25,7 +25,7 @@ Type 'q()' to quit R.
 > # MIT License
 > # ------------------------------------------------------------------------------
 > 
-> setwd('~/Dropbox/dynsimRwriteUp/tlsl/mc_source/')
+> setwd('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/')
 > 
 > library(simpleSetup)
 > pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra')
@@ -165,4 +165,4 @@ The following object is masked from ‘package:dplyr’:
 > 
 > proc.time()
    user  system elapsed 
-  1.828   0.152   2.129 
+  1.819   0.161   2.143 

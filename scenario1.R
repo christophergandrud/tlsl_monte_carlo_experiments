@@ -28,6 +28,8 @@ for (u in 1:nsims) {
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
                 mutate(lag_wy = dplyr::lag(wy, order_by = id))
 
+    sw <- merge(sw, comb)
+
     # Estimate models
     s1_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
     s1_under <- lm(y ~ x1 + lag_wy, data = sw)
@@ -37,10 +39,10 @@ for (u in 1:nsims) {
     s1_under_list <- results_combiner(s1_under_list, s1_under)
 }
 
-# Plot the results
-ps_df <- extract_element(s1_under_list, 'pvalue', 'lag_wy')
+# Plot the results (underestimate)
+ps_df_u <- extract_element(s1_under_list, 'pvalue', 'lag_wy')
 
-s1_p <- ggplot(ps_df, aes(value)) +
+s1_p_under <- ggplot(ps_df_u, aes(value)) +
     geom_density() +
     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
                        limits = c(0, 1)) +
@@ -49,9 +51,9 @@ s1_p <- ggplot(ps_df, aes(value)) +
     ggtitle('Scenario 1 (underestimate)')
 
 # Plot coefficients
-coef1_interval <- slim_coefs(s1_under_list)
+coef1_interval_u <- slim_coefs(s1_under_list)
 
-s1_coef <- ggplot(coef1_interval, aes(variable, qi_median, ymin = qi_min,
+s1_coef_under <- ggplot(coef1_interval_u, aes(variable, qi_median, ymin = qi_min,
                            ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = 2, linetype = 'dotted') +
@@ -59,6 +61,29 @@ s1_coef <- ggplot(coef1_interval, aes(variable, qi_median, ymin = qi_min,
     ylab('Simulated Coefficients') + xlab('\nVariable') +
     ggtitle('Scenario 1 (underestimate)')
 
+# Plot the results (overestimate)
+ps_df_o <- extract_element(s1_over_list, 'pvalue', 'lag_wy')
+
+s1_p_over <- ggplot(ps_df_o, aes(value)) +
+    geom_density() +
+    scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
+                       limits = c(0, 1)) +
+    geom_vline(xintercept = 0.05, linetype = 'dashed') +
+    xlab('\np-value of temporally-lagged spatial lag') +
+    ggtitle('Scenario 1 (overestimate)')
+
+# Plot coefficients
+coef1_interval_o <- slim_coefs(s1_over_list)
+
+s1_coef_over <- ggplot(coef1_interval_o, aes(variable, qi_median, ymin = qi_min,
+                                              ymax = qi_max)) +
+    geom_pointrange() +
+    geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
+    geom_hline(yintercept = 0, colour = 'red') +
+    ylab('Simulated Coefficients') + xlab('\nVariable') +
+    ggtitle('Scenario 1 (overestimate)')
+
 pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 6)
-    gridExtra::grid.arrange(s1_p, s1_coef, ncol = 2)
+    gridExtra::grid.arrange(s1_p_under, s1_coef_under, s1_p_over, s1_coef_over,
+                            ncol = 2)
 dev.off()

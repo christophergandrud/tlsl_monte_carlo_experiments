@@ -4,7 +4,7 @@
 # MIT License
 # ------------------------------------------------------------------------------
 
-setwd('~/Dropbox/dynsimRwriteUp/tlsl/mc_source/')
+setwd('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/')
 
 library(simpleSetup)
 pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra')
