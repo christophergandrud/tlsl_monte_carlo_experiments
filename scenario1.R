@@ -83,7 +83,7 @@ s1_coef_over <- ggplot(coef1_interval_o, aes(variable, qi_median, ymin = qi_min,
     ylab('Simulated Coefficients') + xlab('\nVariable') +
     ggtitle('Scenario 1 (overestimate)')
 
-pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 6)
+pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 12)
     gridExtra::grid.arrange(s1_p_under, s1_coef_under, s1_p_over, s1_coef_over,
                             ncol = 2)
 dev.off()

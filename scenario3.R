@@ -4,6 +4,7 @@ theme_set(theme_bw())
 
 s3_under_list <- list()
 s3_over_list <- list()
+s3_under_location_list <- list()
 
 for (u in 1:nsims) {
     set.seed(u)
@@ -47,15 +48,16 @@ for (u in 1:nsims) {
     s3_under <- lm(y ~ x1 + lag_wy, data = sw)
     s3_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 
-   # s3_region <- lm(y ~ x1 + x2 + as.factor(location) + lag_wy, data = sw)
+    sw$location <- as.factor(sw$location)
+    s3_location <- lm(y ~ x1 + location, data = sw)
 
     # Save estimates
     s3_under_list <- results_combiner(s3_under_list, s3_under)
     s3_over_list <- results_combiner(s3_over_list, s3_over)
-
+    s3_under_location_list <- results_combiner(s3_under_location_list, s3_location)
 }
 
-# Plot the results lag p-value (UNDER)
+# Plot the results lag p-value (UNDER) -----------------------------------------
 ps_df_u <- extract_element(s3_under_list, 'pvalue', 'lag_wy')
 
 s3_p_under <- ggplot(ps_df_u, aes(value)) +
@@ -68,14 +70,38 @@ s3_p_under <- ggplot(ps_df_u, aes(value)) +
 # Plot coefficients
 coef3_interval_u <- slim_coefs(s3_under_list)
 
-s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
+s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median,
+                                              ymin = qi_min, ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = c(2), linetype = 'dotted') +
     geom_hline(yintercept = 0, colour = 'red') +
     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
     ggtitle('Scenario 3 (underestimate)')
 
-# Plot the results lag p-value (OVER)
+# Plot the results lag p-value (UNDER, location dummy rather than lag) ---------
+ps_df_ul <- extract_element(s3_under_location_list, 'pvalue',
+                           c('location1', 'location2'))
+
+s3_p_underl <- ggplot(ps_df_ul, aes(value, group = variable,
+                                    colour = variable)) +
+    geom_density() +
+    scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+    geom_vline(xintercept = 0.05, linetype = 'dashed') +
+    xlab('\np-value of temporally-lagged spatial lag') +
+    ggtitle('Scenario 3 (underestimate, location dummies)')
+
+# Plot coefficients
+coef3_interval_ul <- slim_coefs(s3_under_location_list)
+
+s3_coef_underl <- ggplot(coef3_interval_ul, aes(variable, qi_median,
+                                              ymin = qi_min, ymax = qi_max)) +
+    geom_pointrange() +
+    geom_hline(yintercept = c(2), linetype = 'dotted') +
+    geom_hline(yintercept = 0, colour = 'red') +
+    ylab('Coefficient Estimate\n') + xlab('\nVariable') +
+    ggtitle('Scenario 3 (underestimate, location dummies)')
+
+# Plot the results lag p-value (OVER) ------------------------------------------
 ps_df_o <- extract_element(s3_over_list, 'pvalue', 'lag_wy')
 
 s3_p_over <- ggplot(ps_df_o, aes(value)) +
@@ -88,14 +114,17 @@ s3_p_over <- ggplot(ps_df_o, aes(value)) +
 # Plot coefficients
 coef3_interval_o <- slim_coefs(s3_over_list)
 
-s3_coef_over <- ggplot(coef3_interval_o, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
+s3_coef_over <- ggplot(coef3_interval_o, aes(variable, qi_median, ymin = qi_min,
+                                             ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
     geom_hline(yintercept = 0, colour = 'red') +
     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
     ggtitle('Scenario 3 (overestimate)')
 
-pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 12)
-    gridExtra::grid.arrange(s3_p_under, s3_coef_under, s3_p_over, s3_coef_over,
+pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 18)
+    gridExtra::grid.arrange(s3_p_under, s3_coef_under,
+                         #   s3_p_underl, s3_coef_underl,
+                            s3_p_over, s3_coef_over,
                             ncol = 2)
 dev.off()

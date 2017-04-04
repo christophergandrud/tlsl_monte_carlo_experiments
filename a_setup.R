@@ -35,7 +35,7 @@ t <- rep(x = 1:t_per_indiv, n_indiv)
 i <- rep(1:n_indiv, times = 1, each = t_per_indiv)
 
 # Regions
-regions <- 0:1
+regions <- 0:4
 nregions <- length(regions)
 
 # Observations per time point
@@ -52,10 +52,11 @@ AR = 0.6
 
 #### FUNCTIONS
 # Function to randomly create a location variable
-location_builder <- function(n_indiv = n_indiv, t_per_indiv = t_per_indiv) {
+location_builder <- function(n_indiv = n_indiv, t_per_indiv = t_per_indiv,
+                             n_regions = nregions) {
     location <- vector()
     for (j in 1:n_indiv) {
-        temp <- rep(sample(0:1, 1), t_per_indiv)
+        temp <- rep(sample(0:n_regions, 1), t_per_indiv)
         location <- c(location, temp)
     }
     return(location)
