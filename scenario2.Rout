@@ -19,7 +19,7 @@ Type 'q()' to quit R.
 
 [Previously saved workspace restored]
 
-> # TLSL Scenario 1 --------------------------------------------------------------
+> # TLSL Scenario 2 --------------------------------------------------------------
 > simpleSetup::library_install(pkgs)
 
 Attaching package: ‘dplyr’
@@ -45,16 +45,18 @@ The following object is masked from ‘package:dplyr’:
 
 > theme_set(theme_bw())
 > 
-> s1_over_list <- list()
-> s1_under_list <- list()
+> s2_under_list <- list()
+> s2_over_list <- list()
 > 
 > for (u in 1:nsims) {
 +     set.seed(u)
 +     x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
-+     x2 <- runif(n = N, min = 0, max = 10)
++     x2 <- vector()
++     for (g in 1:n_indiv) {
++         x2 <- c(x2, arima.sim(list(ar = AR), n = t_per_indiv))
++     }
 +     epsilon <- rnorm(N, 0, 1)
 +     location <- location_builder(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
-+ 
 + 
 +     # Generate response
 +     y <- alpha + b1*x1 + b2*x2 + epsilon
@@ -74,12 +76,12 @@ The following object is masked from ‘package:dplyr’:
 +     sw <- merge(sw, comb)
 + 
 +     # Estimate models
-+     s1_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
-+     s1_under <- lm(y ~ x1 + lag_wy, data = sw)
++     s2_under <- lm(y ~ x1 + lag_wy, data = sw)
++     s2_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 + 
 +     # Save estimates
-+     s1_over_list <- results_combiner(s1_over_list, s1_over)
-+     s1_under_list <- results_combiner(s1_under_list, s1_under)
++     s2_under_list <- results_combiner(s2_under_list, s2_under)
++     s2_over_list <- results_combiner(s2_over_list, s2_over)
 + }
 Note: p-value of Moran's I is only found when mc_cores = 1.
 
@@ -5082,57 +5084,55 @@ Categorical location detected.
 Proximity found using Xi == Xk and group averaging.
 
 > 
-> # Plot the results (underestimate)
-> ps_df_u <- extract_element(s1_under_list, 'pvalue', 'lag_wy')
+> # Plot the results (UNDER)
+> ps_df <- extract_element(s2_under_list, 'pvalue', 'lag_wy')
 > 
-> s1_p_under <- ggplot(ps_df_u, aes(value)) +
+> s2_p_under <- ggplot(ps_df, aes(value)) +
 +     geom_density() +
-+     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
-+                        limits = c(0, 1)) +
++     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
 +     geom_vline(xintercept = 0.05, linetype = 'dashed') +
 +     xlab('\np-value of temporally-lagged spatial lag') +
-+     ggtitle('Scenario 1 (underestimate)')
++     ggtitle('Scenario 2 (underestimate)')
 > 
 > # Plot coefficients
-> coef1_interval_u <- slim_coefs(s1_under_list)
+> coef2_interval <- slim_coefs(s2_under_list)
 > 
-> s1_coef_under <- ggplot(coef1_interval_u, aes(variable, qi_median, ymin = qi_min,
-+                            ymax = qi_max)) +
+> s2_coef_under <- ggplot(coef2_interval, aes(variable, qi_median, ymin = qi_min,
++                         ymax = qi_max)) +
 +     geom_pointrange() +
 +     geom_hline(yintercept = 2, linetype = 'dotted') +
 +     geom_hline(yintercept = 0, colour = 'red') +
-+     ylab('Simulated Coefficients') + xlab('\nVariable') +
-+     ggtitle('Scenario 1 (underestimate)')
++     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
++     ggtitle('Scenario 2 (underestimate)')
 > 
-> # Plot the results (overestimate)
-> ps_df_o <- extract_element(s1_over_list, 'pvalue', 'lag_wy')
+> # Plot the results (OVER)
+> ps_df <- extract_element(s2_over_list, 'pvalue', 'lag_wy')
 > 
-> s1_p_over <- ggplot(ps_df_o, aes(value)) +
+> s2_p_over <- ggplot(ps_df, aes(value)) +
 +     geom_density() +
-+     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
-+                        limits = c(0, 1)) +
++     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
 +     geom_vline(xintercept = 0.05, linetype = 'dashed') +
 +     xlab('\np-value of temporally-lagged spatial lag') +
-+     ggtitle('Scenario 1 (overestimate)')
++     ggtitle('Scenario 2 (overestimate)')
 > 
 > # Plot coefficients
-> coef1_interval_o <- slim_coefs(s1_over_list)
+> coef2_interval <- slim_coefs(s2_over_list)
 > 
-> s1_coef_over <- ggplot(coef1_interval_o, aes(variable, qi_median, ymin = qi_min,
-+                                               ymax = qi_max)) +
+> s2_coef_over <- ggplot(coef2_interval, aes(variable, qi_median, ymin = qi_min,
++                         ymax = qi_max)) +
 +     geom_pointrange() +
 +     geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
 +     geom_hline(yintercept = 0, colour = 'red') +
-+     ylab('Simulated Coefficients') + xlab('\nVariable') +
-+     ggtitle('Scenario 1 (overestimate)')
++     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
++     ggtitle('Scenario 2 (overestimate)')
 > 
-> pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 12)
->     gridExtra::grid.arrange(s1_p_under, s1_coef_under, s1_p_over, s1_coef_over,
+> pdf(file = 'mc_figures/scenario2_plots.pdf', width = 12, height = 12)
+>     gridExtra::grid.arrange(s2_p_under, s2_coef_under, s2_p_over, s2_coef_over,
 +                             ncol = 2)
 > dev.off()
 null device 
           1 
 > 
 > proc.time()
-     user    system   elapsed 
-10254.241  1483.077  2425.686 
+    user   system  elapsed 
+9901.370 1453.965 2368.671 

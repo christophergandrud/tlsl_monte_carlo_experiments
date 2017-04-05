@@ -60,11 +60,12 @@ for (u in 1:nsims) {
 # Plot the results lag p-value (UNDER) -----------------------------------------
 ps_df_u <- extract_element(s3_under_list, 'pvalue', 'lag_wy')
 
-s3_p_under <- ggplot(ps_df_u, aes(value)) +
-    geom_density() +
-    scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
-    geom_vline(xintercept = 0.05, linetype = 'dashed') +
-    xlab('\np-value of temporally-lagged spatial lag') +
+s3_p_under <- ggplot(ps_df_u, aes(variable, value)) +
+    geom_boxplot() +
+#    scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+#    geom_vline(xintercept = 0.05, linetype = 'dashed') +
+#    xlab('\np-value of temporally-lagged spatial lag') +
+    ylab('p-value of temporally-lagged spatial lag') + xlab('') +
     ggtitle('Scenario 3 (underestimate)')
 
 # Plot coefficients
@@ -123,8 +124,10 @@ s3_coef_over <- ggplot(coef3_interval_o, aes(variable, qi_median, ymin = qi_min,
     ggtitle('Scenario 3 (overestimate)')
 
 pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 18)
-    gridExtra::grid.arrange(s3_p_under, s3_coef_under,
-                         #   s3_p_underl, s3_coef_underl,
+    gridExtra::grid.arrange(
+                            s3_p_under,
+                            s3_coef_under,
+                            s3_p_underl, s3_coef_underl,
                             s3_p_over, s3_coef_over,
                             ncol = 2)
 dev.off()

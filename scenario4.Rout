@@ -19,7 +19,7 @@ Type 'q()' to quit R.
 
 [Previously saved workspace restored]
 
-> # TLSL Scenario 1 --------------------------------------------------------------
+> # TLSL Scenario 4 --------------------------------------------------------------
 > simpleSetup::library_install(pkgs)
 
 Attaching package: ‘dplyr’
@@ -45,19 +45,23 @@ The following object is masked from ‘package:dplyr’:
 
 > theme_set(theme_bw())
 > 
-> s1_over_list <- list()
-> s1_under_list <- list()
+> s4_under_list <- list()
 > 
 > for (u in 1:nsims) {
 +     set.seed(u)
 +     x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
 +     x2 <- runif(n = N, min = 0, max = 10)
++     ytm1 <- vector()
++     for (g in 1:n_indiv) {
++         over <- arima.sim(list(ar = AR), n = t_per_indiv+1)
++         sub <- over[2:(t_per_indiv+1)]
++         ytm1 <- c(ytm1, sub)
++     }
 +     epsilon <- rnorm(N, 0, 1)
 +     location <- location_builder(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
 + 
-+ 
 +     # Generate response
-+     y <- alpha + b1*x1 + b2*x2 + epsilon
++     y <- alpha + b1*x1 + b2*x2 + phi*ytm1 + epsilon
 + 
 +     # Create global monadic spatial weight
 +     comb <- data.frame(id = i, t = t, y = y,
@@ -74,12 +78,10 @@ The following object is masked from ‘package:dplyr’:
 +     sw <- merge(sw, comb)
 + 
 +     # Estimate models
-+     s1_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
-+     s1_under <- lm(y ~ x1 + lag_wy, data = sw)
++     s4_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 + 
 +     # Save estimates
-+     s1_over_list <- results_combiner(s1_over_list, s1_over)
-+     s1_under_list <- results_combiner(s1_under_list, s1_under)
++     s4_under_list <- results_combiner(s4_under_list, s4_under)
 + }
 Note: p-value of Moran's I is only found when mc_cores = 1.
 
@@ -5082,57 +5084,32 @@ Categorical location detected.
 Proximity found using Xi == Xk and group averaging.
 
 > 
-> # Plot the results (underestimate)
-> ps_df_u <- extract_element(s1_under_list, 'pvalue', 'lag_wy')
+> # Plot the results
+> ps_df <- extract_element(s4_under_list, 'pvalue', 'lag_wy')
 > 
-> s1_p_under <- ggplot(ps_df_u, aes(value)) +
+> s4_p <- ggplot(ps_df, aes(value)) +
 +     geom_density() +
-+     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
-+                        limits = c(0, 1)) +
++     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
 +     geom_vline(xintercept = 0.05, linetype = 'dashed') +
 +     xlab('\np-value of temporally-lagged spatial lag') +
-+     ggtitle('Scenario 1 (underestimate)')
++     ggtitle('Scenario 4 (mischaracterised)')
 > 
 > # Plot coefficients
-> coef1_interval_u <- slim_coefs(s1_under_list)
+> coef4_interval <- slim_coefs(s4_under_list)
 > 
-> s1_coef_under <- ggplot(coef1_interval_u, aes(variable, qi_median, ymin = qi_min,
-+                            ymax = qi_max)) +
+> s4_coef <- ggplot(coef4_interval, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
 +     geom_pointrange() +
-+     geom_hline(yintercept = 2, linetype = 'dotted') +
++     geom_hline(yintercept = c(2, 3, 4), linetype = 'dotted') +
 +     geom_hline(yintercept = 0, colour = 'red') +
-+     ylab('Simulated Coefficients') + xlab('\nVariable') +
-+     ggtitle('Scenario 1 (underestimate)')
++     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
++     ggtitle('Scenario 4 (mischaracterised)')
 > 
-> # Plot the results (overestimate)
-> ps_df_o <- extract_element(s1_over_list, 'pvalue', 'lag_wy')
-> 
-> s1_p_over <- ggplot(ps_df_o, aes(value)) +
-+     geom_density() +
-+     scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1),
-+                        limits = c(0, 1)) +
-+     geom_vline(xintercept = 0.05, linetype = 'dashed') +
-+     xlab('\np-value of temporally-lagged spatial lag') +
-+     ggtitle('Scenario 1 (overestimate)')
-> 
-> # Plot coefficients
-> coef1_interval_o <- slim_coefs(s1_over_list)
-> 
-> s1_coef_over <- ggplot(coef1_interval_o, aes(variable, qi_median, ymin = qi_min,
-+                                               ymax = qi_max)) +
-+     geom_pointrange() +
-+     geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
-+     geom_hline(yintercept = 0, colour = 'red') +
-+     ylab('Simulated Coefficients') + xlab('\nVariable') +
-+     ggtitle('Scenario 1 (overestimate)')
-> 
-> pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 12)
->     gridExtra::grid.arrange(s1_p_under, s1_coef_under, s1_p_over, s1_coef_over,
-+                             ncol = 2)
+> pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 6)
+>     gridExtra::grid.arrange(s4_p, s4_coef, ncol = 2)
 > dev.off()
 null device 
           1 
 > 
 > proc.time()
-     user    system   elapsed 
-10254.241  1483.077  2425.686 
+    user   system  elapsed 
+9286.747 1479.753 2230.185 
