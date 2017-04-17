@@ -81,7 +81,7 @@ s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median,
 
 # Plot the results lag p-value (UNDER, location dummy rather than lag) ---------
 ps_df_ul <- extract_element(s3_under_location_list, 'pvalue',
-                           c('location1', 'location2'))
+                           c('location1', 'location2', 'location3', 'location4'))
 
 s3_p_underl <- ggplot(ps_df_ul, aes(value, group = variable,
                                     colour = variable)) +
