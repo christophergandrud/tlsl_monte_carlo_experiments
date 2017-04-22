@@ -3,27 +3,33 @@ simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 
 s4_under_list <- list()
+set.seed(seed)
 
 for (u in 1:nsims) {
-    set.seed(u)
-    x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
-    x2 <- runif(n = N, min = 0, max = 10)
-    ytm1 <- vector()
-    for (g in 1:n_indiv) {
-        over <- arima.sim(list(ar = AR), n = t_per_indiv+1)
-        sub <- over[2:(t_per_indiv+1)]
-        ytm1 <- c(ytm1, sub)
-    }
-    epsilon <- rnorm(N, 0, 1)
-    location <- location_builder(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
+    comb <- data.frame()
+    for (n in 1:n_indiv) {
+        tu <- t_per_indiv + 1
+        epsilon <- rnorm(tu, 0, 1)
+        x1 <- sample(x = c(0, 1), size = tu, replace = TRUE)
+        x2 <- runif(n = tu, min = 0, max = 1)
 
-    # Generate response
-    y <- alpha + b1*x1 + b2*x2 + phi*ytm1 + epsilon
+        y <- numeric(length(epsilon))
+        yinit <- rnorm(1, 0, 1)
+
+        for(l in 1:length(y)){
+            if(l==1) y[l] <- alpha + b1*x1[l] + b2*x2[l] + phi * yinit + epsilon[l]
+            if(l > 1) y[l] <- alpha + b1*x1[l] + b2*x2[l] + phi * y[l-1] + epsilon[l]
+        }
+        temp <- data.frame(id = n, t = 1:t_per_indiv, y = y[-1],
+                           x1 = x1[-1], x2 = x2[-1],
+                           ytm1 = y[-length(y)])
+        comb <- rbind(comb, temp)
+    }
+    location_df <- location_builder_continuous(n_indiv = n_indiv,
+                                                t_per_indiv = t_per_indiv)
+    comb <- cbind(comb, location = location_df$location)
 
     # Create global monadic spatial weight
-    comb <- data.frame(id = i, t = t, y = y,
-                       x1 = x1, x2 = x2,
-                       location = as.factor(location))
     sw <- spatialWeights::monadic_spatial_weights(
                             comb, id_var = 'id', time_var = 't',
                             y_var = 'y', location_var = 'location',
@@ -42,13 +48,16 @@ for (u in 1:nsims) {
 }
 
 # Plot the results
-ps_df <- extract_element(s4_under_list, 'pvalue', 'lag_wy')
+ps_df_u <- extract_element(s4_under_list, 'pvalue', 'lag_wy')
 
-s4_p <- ggplot(ps_df, aes(value)) +
-    geom_density() +
-    scale_x_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
-    geom_vline(xintercept = 0.05, linetype = 'dashed') +
-    xlab('\np-value of temporally-lagged spatial lag') +
+s4_p <- ggplot(ps_df_u, aes(variable, value)) +
+    geom_boxplot() +
+    geom_point(alpha = 0.2, position = 'jitter') +
+    geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
+    geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
+    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+    coord_flip() +
+    ylab('p-value of temporally-lagged spatial lag') + xlab('') +
     ggtitle('Scenario 4 (mischaracterised)')
 
 # Plot coefficients

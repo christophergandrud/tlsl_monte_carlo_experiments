@@ -95,7 +95,7 @@ The following object is masked from ‘package:dplyr’:
 > 
 > #### FUNCTIONS
 > # Function to randomly create a location variable
-> location_builder <- function(n_indiv = n_indiv, t_per_indiv = t_per_indiv,
+> location_builder_discrete <- function(n_indiv = n_indiv, t_per_indiv = t_per_indiv,
 +                              n_regions = nregions) {
 +     location <- vector()
 +     for (j in 1:n_indiv) {

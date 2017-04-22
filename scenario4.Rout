@@ -58,7 +58,7 @@ The following object is masked from ‘package:dplyr’:
 +         ytm1 <- c(ytm1, sub)
 +     }
 +     epsilon <- rnorm(N, 0, 1)
-+     location <- location_builder(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
++     location <- location_builder_discrete(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
 + 
 +     # Generate response
 +     y <- alpha + b1*x1 + b2*x2 + phi*ytm1 + epsilon
