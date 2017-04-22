@@ -7,7 +7,8 @@
 setwd('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/')
 
 library(simpleSetup)
-pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra')
+pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra',
+          'ape')
 simpleSetup::library_install(pkgs)
 
 theme_set(theme_bw())

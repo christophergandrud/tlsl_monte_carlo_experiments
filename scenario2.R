@@ -13,6 +13,11 @@ for (u in 1:nsims) {
         x2 <- c(x2, arima.sim(list(ar = AR), n = t_per_indiv))
     }
     epsilon <- rnorm(N, 0, 1)
+#    epsilon <- vector() # Autoregressive error term, results largely similar
+#    for (g in 1:n_indiv) {
+#        epsilon <- c(epsilon, arima.sim(list(ar = AR),
+#                                        n = t_per_indiv))
+#    }
     location <- location_builder(n_indiv = n_indiv, t_per_indiv = t_per_indiv)
 
     # Generate response
