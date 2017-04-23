@@ -10,12 +10,11 @@ for (u in 1:nsims) {
     x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
 
     x2_df <- x2_spatial_builder(tu = t_per_indiv)
-    message("Original X2 Moran's I per year")
-    for (l in 1:t_per_indiv) {
-        sub <- subset(x2_df, t == l)$X2
-        print(sprintf('%s: %s', l, format.pval(Moran.I(sub, W)$p.value)))
-    }
-
+#    message("Original X2 Moran's I per year")
+#    for (l in 1:t_per_indiv) {
+#        sub <- subset(x2_df, t == l)$X2
+#        print(sprintf('%s: %s', l, format.pval(Moran.I(sub, W)$p.value)))
+#    }
     epsilon <- rnorm(N, 0, 1)
 
     # Generate response
@@ -25,11 +24,11 @@ for (u in 1:nsims) {
     comb <- data.frame(id = i, t = t, y = y,
                        x1 = x1, x2 = x2_df$X2,
                        location = x2_df$location)
+
     sw <- spatialWeights::monadic_spatial_weights(
         comb, id_var = 'id', time_var = 't',
         y_var = 'y', location_var = 'location',
-        weight_name = 'wy',
-        mc_cores = num_cores)
+        weight_name = 'wy', mc_cores = num_cores)
     # Lag weight
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
         mutate(lag_wy = dplyr::lag(wy, order_by = id))

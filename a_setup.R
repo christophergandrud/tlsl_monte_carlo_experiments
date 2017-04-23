@@ -21,7 +21,7 @@ num_cores <- 7
 
 #### TRUE VALUES
 # Number of simulations
-nsims = 1000
+nsims = 10
 
 # Number of simulated observations
 N = 500
@@ -56,7 +56,8 @@ AR = 0.6
 
 #### FUNCTIONS
 # Function to randomly create a location variable
-location_builder_discrete <- function(n_indiv = n_indiv, t_per_indiv = t_per_indiv,
+location_builder_discrete <- function(n_indiv = n_indiv,
+                             t_per_indiv = t_per_indiv,
                              n_regions = nregions) {
     location <- vector()
     for (j in 1:n_indiv) {
@@ -70,8 +71,14 @@ location_builder_continuous <- function(n_indiv = n_indiv,
                                         t_per_indiv = t_per_indiv) {
     library(dplyr)
     location_1 <- rnorm(n = n_indiv, mean = 0, sd = 1)
-    location <- rep(location_1, times = 5)
-    id <- rep(1:n_indiv, times = 5)
+    if (!is.null(t_per_indiv)) {
+        location <- rep(location_1, times = t_per_indiv)
+        id <- rep(1:n_indiv, times = t_per_indiv)
+    }
+    else {
+        location <- location_1
+        id <- 1:n_indiv
+    }
     location_df <- data.frame(id = id, location = location) %>% arrange(id)
     return(location_df)
 }
@@ -86,7 +93,7 @@ x2_spatial_builder <- function(tu) {
     G <- vector()
     for (k in 1:tu) {
         g <- runif(n = obs_per_time, min = 0, max = 1)
-        X2 <- c(G, (W %*% g) + rnorm(obs_per_time, 0, 1))
+        X2 <- c(G, colSums(W * g) + rnorm(obs_per_time, 0, 1))
         temp <- data.frame(i = 1:n_indiv, t = k, X2 = X2, location = location)
         x2_df <- rbind(x2_df, temp)
     }

@@ -6,9 +6,9 @@ s4_under_list <- list()
 set.seed(seed)
 
 for (u in 1:nsims) {
+    tu <- t_per_indiv + 1
     comb <- data.frame()
     for (n in 1:n_indiv) {
-        tu <- t_per_indiv + 1
         epsilon <- rnorm(tu, 0, 1)
         x1 <- sample(x = c(0, 1), size = tu, replace = TRUE)
         x2 <- runif(n = tu, min = 0, max = 1)

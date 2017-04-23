@@ -28,6 +28,7 @@ for (u in 1:nsims) {
     comb <- data.frame(id = i, t = t, y = y,
                        x1 = x1, x2 = x2,
                        location = location_df$location)
+
     sw <- spatialWeights::monadic_spatial_weights(
         comb, id_var = 'id', time_var = 't',
         y_var = 'y', location_var = 'location',
