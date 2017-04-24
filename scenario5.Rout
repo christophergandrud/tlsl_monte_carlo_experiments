@@ -86,12 +86,3975 @@ The following object is masked from ‘package:dplyr’:
 + 
 +     sw <- merge(sw, comb)
 + 
++     # burn in
++     sw <- subset(sw, t != 1:burnin)
++ 
 +     # Estimate models
 +     s5_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 + 
 +     # Save estimates
 +     s5_under_list <- results_combiner(s5_under_list, s5_under)
 + }
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
+Note: p-value of Moran's I is only found when mc_cores = 1.
+
+Continuous location variable detected. Proximity found using method = euclidean.
+
 Note: p-value of Moran's I is only found when mc_cores = 1.
 
 Continuous location variable detected. Proximity found using method = euclidean.
@@ -158,12 +4121,10 @@ Continuous location variable detected. Proximity found using method = euclidean.
 > 
 > pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 6)
 >     gridExtra::grid.arrange(s5_p, s5_coef, ncol = 2)
-Warning message:
-Removed 1 rows containing missing values (geom_point). 
 > dev.off()
 null device 
           1 
 > 
 > proc.time()
    user  system elapsed 
-  3.890   0.898   4.468 
+704.670 262.882 617.683 

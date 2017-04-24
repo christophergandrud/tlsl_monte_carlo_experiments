@@ -27,8 +27,10 @@ for (u in 1:nsims) {
     # Lag weight
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
                 mutate(lag_wy = dplyr::lag(wy, order_by = id))
-
     sw <- merge(sw, comb)
+
+    # burn in
+    sw <- subset(sw, t != 1:burnin)
 
     # Estimate models
     s1_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)

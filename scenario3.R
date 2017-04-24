@@ -35,6 +35,9 @@ for (u in 1:nsims) {
 
     sw <- merge(sw, comb)
 
+    # burnin
+    sw <- subset(sw, t != 1:burnin)
+
     # Estimate models
     s3_under <- lm(y ~ x1 + lag_wy, data = sw)
     s3_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)

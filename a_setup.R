@@ -21,26 +21,25 @@ num_cores <- 7
 
 #### TRUE VALUES
 # Number of simulations
-nsims = 10
+nsims = 1000
 
-# Number of simulated observations
-N = 500
+# Burn in
+burnin <- 2
 
 # Number of time points per unit
-t_per_indiv = 5
+t_per_indiv = 100 + burnin
 
 # Number of units
-n_indiv <- N / t_per_indiv
+n_indiv <- 100
+
+# Number of simulated observations
+N = n_indiv * t_per_indiv
 
 # Time points
 t <- rep(x = 1:t_per_indiv, n_indiv)
 
 # Individuals
 i <- rep(1:n_indiv, times = 1, each = t_per_indiv)
-
-# Regions
-regions <- 0:4
-nregions <- length(regions)
 
 # Observations per time point
 obs_per_time <- N/t_per_indiv
@@ -55,7 +54,7 @@ phi = 4
 AR = 0.6
 
 #### FUNCTIONS
-# Function to randomly create a location variable
+# Function to randomly create a location variable # NOT USED
 location_builder_discrete <- function(n_indiv = n_indiv,
                              t_per_indiv = t_per_indiv,
                              n_regions = nregions) {

@@ -40,8 +40,13 @@ for (u in 1:nsims) {
 
     sw <- merge(sw, comb)
 
+    # burn in
+    sw <- subset(sw, t != 1:burnin)
+
     # Estimate models
     s4_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
+
+#    s4_over <- lm(y ~ x1 + x2 + ytm1, data = sw)
 
     # Save estimates
     s4_under_list <- results_combiner(s4_under_list, s4_under)
