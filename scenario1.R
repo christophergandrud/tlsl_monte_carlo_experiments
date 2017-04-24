@@ -8,7 +8,7 @@ set.seed(seed)
 
 for (u in 1:nsims) {
     x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
-    x2 <- runif(n = N, min = 0, max = 1)
+    x2 <- rnorm(n = N, 0, 1)
     epsilon <- rnorm(N, 0, 1)
     location_df <- location_builder_continuous(n_indiv = n_indiv,
                                                 t_per_indiv = t_per_indiv)
@@ -40,6 +40,15 @@ for (u in 1:nsims) {
     s1_over_list <- results_combiner(s1_over_list, s1_over)
     s1_under_list <- results_combiner(s1_under_list, s1_under)
 }
+
+
+# Plot the results (UNDER) ----------
+s1_p_under <- p_plot(s1_under_list, 'lag_wy', 'Scenario 1 (underestimate)')
+s1_coef_under <- coef_plot(s1_under_list, 'Scenario 1 (underestimate)')
+
+# Plot the results (OVER) ----------
+s1_p_over <- p_plot(s1_over_list, 'lag_wy', 'Scenario 1 (overestimate)')
+s1_coef_over <- coef_plot(s1_over_list, 'Scenario 1 (overestimate)')
 
 # Plot the results (underestimate)
 ps_df_u <- extract_element(s1_under_list, 'pvalue', 'lag_wy')

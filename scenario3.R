@@ -77,7 +77,7 @@ s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median,
     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
     ggtitle('Scenario 3 (continuous, underestimate)')
 
-# Plot the results lag p-value (UNDER) -----------------------------------------
+# Plot the results lag p-value (location, UNDER) -----------------------------------------
 ps_df_uloc <- extract_element(s3_under_loc_list, 'pvalue', 'location')
 
 s3_p_underloc <- ggplot(ps_df_uloc, aes(variable, value)) +
@@ -125,9 +125,10 @@ s3_coef_over <- ggplot(coef3_interval_o, aes(variable, qi_median, ymin = qi_min,
     ylab('Coefficient Estimate\n') + xlab('\nVariable') +
     ggtitle('Scenario 3 (continuous,overestimate)')
 
-pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 12)
+pdf(file = 'mc_figures/scenario3_plots.pdf', width = 18, height = 18)
 gridExtra::grid.arrange(
     s3_p_under, s3_coef_under,
+    s3_p_underloc, s3_coef_underloc,
     s3_p_over, s3_coef_over,
     ncol = 2)
 dev.off()

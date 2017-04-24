@@ -11,7 +11,7 @@ for (u in 1:nsims) {
     for (n in 1:n_indiv) {
         epsilon <- rnorm(tu, 0, 1)
         x1 <- sample(x = c(0, 1), size = tu, replace = TRUE)
-        x2 <- runif(n = tu, min = 0, max = 1)
+        x2 <- rnomr(n = tu, 0, 1)
 
         y <- numeric(length(epsilon))
         yinit <- rnorm(1, 0, 1)

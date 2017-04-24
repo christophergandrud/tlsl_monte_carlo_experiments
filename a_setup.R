@@ -21,7 +21,7 @@ num_cores <- 7
 
 #### TRUE VALUES
 # Number of simulations
-nsims = 1000
+nsims = 100
 
 # Burn in
 burnin <- 2
@@ -158,3 +158,33 @@ slim_coefs <- function(results) {
     coef_interval <- subset(coef_interval, variable != '(Intercept)')
     return(coef_interval)
 }
+
+# Plotters
+p_plot <- function(results, var, title) {
+    extracted <- extract_element(results, 'pvalue', var)
+
+    p <- ggplot(extracted, aes(variable, value)) +
+        geom_boxplot() +
+        geom_point(alpha = 0.2, position = 'jitter') +
+        geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
+        geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
+        scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+        coord_flip() +
+        ylab('p-value of temporally-lagged spatial lag') + xlab('') +
+        ggtitle(title)
+    return(p)
+}
+
+coef_plot <- function(results, title) {
+    extracted <- slim_coefs(results)
+
+    p <- ggplot(extracted, aes(variable, qi_median, ymin = qi_min,
+                                               ymax = qi_max)) +
+        geom_pointrange() +
+        geom_hline(yintercept = c(2, 3, 4), linetype = 'dotted') +
+        geom_hline(yintercept = 0, colour = 'red') +
+        ylab('Coefficient Estimate\n') + xlab('\nVariable') +
+        ggtitle(title)
+    return(p)
+}
+
