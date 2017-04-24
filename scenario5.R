@@ -54,27 +54,8 @@ for (u in 1:nsims) {
 }
 
 # Plot the results
-ps_df_u <- extract_element(s5_under_list, 'pvalue', 'lag_wy')
-
-s5_p <- ggplot(ps_df_u, aes(variable, value)) +
-    geom_boxplot() +
-    geom_point(alpha = 0.2, position = 'jitter') +
-    geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
-    geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
-    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
-    coord_flip() +
-    ylab('p-value of temporally-lagged spatial lag') + xlab('') +
-    ggtitle('Scenario 5 (mischaracterised)')
-
-# Plot coefficients
-coef5_interval <- slim_coefs(s5_under_list)
-
-s5_coef <- ggplot(coef5_interval, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
-    geom_pointrange() +
-    geom_hline(yintercept = c(2, 3, 4), linetype = 'dotted') +
-    geom_hline(yintercept = 0, colour = 'red') +
-    ylab('Coefficient Estimate\n') + xlab('\nVariable') +
-    ggtitle('Scenario 5 (mischaracterised)')
+s5_p <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised)')
+s5_coef <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised)')
 
 pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 6)
     gridExtra::grid.arrange(s5_p, s5_coef, ncol = 2)

@@ -21,7 +21,7 @@ num_cores <- 7
 
 #### TRUE VALUES
 # Number of simulations
-nsims = 100
+nsims = 1000
 
 # Burn in
 burnin <- 2
@@ -48,10 +48,9 @@ obs_per_time <- N/t_per_indiv
 alpha = 1
 b1 = 2
 b2 = 3
-phi = 4
 
 # AR
-AR = 0.6
+AR <- phi <- 0.6
 
 #### FUNCTIONS
 # Function to randomly create a location variable # NOT USED
@@ -181,10 +180,11 @@ coef_plot <- function(results, title) {
     p <- ggplot(extracted, aes(variable, qi_median, ymin = qi_min,
                                                ymax = qi_max)) +
         geom_pointrange() +
-        geom_hline(yintercept = c(2, 3, 4), linetype = 'dotted') +
+        geom_hline(yintercept = c(2, 3), linetype = 'dotted')
         geom_hline(yintercept = 0, colour = 'red') +
         ylab('Coefficient Estimate\n') + xlab('\nVariable') +
         ggtitle(title)
+
     return(p)
 }
 

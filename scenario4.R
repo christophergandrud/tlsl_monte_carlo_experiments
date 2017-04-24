@@ -11,7 +11,7 @@ for (u in 1:nsims) {
     for (n in 1:n_indiv) {
         epsilon <- rnorm(tu, 0, 1)
         x1 <- sample(x = c(0, 1), size = tu, replace = TRUE)
-        x2 <- rnomr(n = tu, 0, 1)
+        x2 <- rnorm(n = tu, 0, 1)
 
         y <- numeric(length(epsilon))
         yinit <- rnorm(1, 0, 1)
@@ -53,27 +53,8 @@ for (u in 1:nsims) {
 }
 
 # Plot the results
-ps_df_u <- extract_element(s4_under_list, 'pvalue', 'lag_wy')
-
-s4_p <- ggplot(ps_df_u, aes(variable, value)) +
-    geom_boxplot() +
-    geom_point(alpha = 0.2, position = 'jitter') +
-    geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
-    geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
-    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
-    coord_flip() +
-    ylab('p-value of temporally-lagged spatial lag') + xlab('') +
-    ggtitle('Scenario 4 (mischaracterised)')
-
-# Plot coefficients
-coef4_interval <- slim_coefs(s4_under_list)
-
-s4_coef <- ggplot(coef4_interval, aes(variable, qi_median, ymin = qi_min, ymax = qi_max)) +
-    geom_pointrange() +
-    geom_hline(yintercept = c(2, 3, 4), linetype = 'dotted') +
-    geom_hline(yintercept = 0, colour = 'red') +
-    ylab('Coefficient Estimate\n') + xlab('\nVariable') +
-    ggtitle('Scenario 4 (mischaracterised)')
+s4_p <- p_plot(s4_under_list, 'lag_wy', 'Scenario 4 (mischaracterised)')
+s4_coef <- coef_plot(s4_under_list, 'Scenario 4 (mischaracterised)')
 
 pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 6)
     gridExtra::grid.arrange(s4_p, s4_coef, ncol = 2)
