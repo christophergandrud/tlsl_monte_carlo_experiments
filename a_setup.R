@@ -180,7 +180,7 @@ coef_plot <- function(results, title) {
     p <- ggplot(extracted, aes(variable, qi_median, ymin = qi_min,
                                                ymax = qi_max)) +
         geom_pointrange() +
-        geom_hline(yintercept = c(2, 3), linetype = 'dotted')
+        geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
         geom_hline(yintercept = 0, colour = 'red') +
         ylab('Coefficient Estimate\n') + xlab('\nVariable') +
         ggtitle(title)
