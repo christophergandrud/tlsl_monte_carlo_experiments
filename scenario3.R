@@ -3,6 +3,9 @@ simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 
 s3_under_list <- list()
+
+s3_under_loc_list <- list()
+
 s3_over_list <- list()
 set.seed(seed)
 
@@ -24,7 +27,6 @@ for (u in 1:nsims) {
     comb <- data.frame(id = i, t = t, y = y,
                        x1 = x1, x2 = x2_df$X2,
                        location = x2_df$location)
-
     sw <- spatialWeights::monadic_spatial_weights(
         comb, id_var = 'id', time_var = 't',
         y_var = 'y', location_var = 'location',
@@ -36,16 +38,19 @@ for (u in 1:nsims) {
     sw <- merge(sw, comb)
 
     # burnin
-    sw <- subset(sw, t != 1:burnin)
+    sw <- subset(sw, t != 1:burnin) %>% arrange(id, t)
 
     # Estimate models
     s3_under <- lm(y ~ x1 + lag_wy, data = sw)
     s3_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 
+    s3_under_loc <- lm(y ~ x1 + location, data = sw)
 
     # Save estimates
     s3_under_list <- results_combiner(s3_under_list, s3_under)
     s3_over_list <- results_combiner(s3_over_list, s3_over)
+
+    s3_under_loc_list <- results_combiner(s3_under_loc_list, s3_under_loc)
 }
 
 # Plot the results lag p-value (UNDER) -----------------------------------------
@@ -65,6 +70,30 @@ s3_p_under <- ggplot(ps_df_u, aes(variable, value)) +
 coef3_interval_u <- slim_coefs(s3_under_list)
 
 s3_coef_under <- ggplot(coef3_interval_u, aes(variable, qi_median,
+                                              ymin = qi_min, ymax = qi_max)) +
+    geom_pointrange() +
+    geom_hline(yintercept = c(2), linetype = 'dotted') +
+    geom_hline(yintercept = 0, colour = 'red') +
+    ylab('Coefficient Estimate\n') + xlab('\nVariable') +
+    ggtitle('Scenario 3 (continuous, underestimate)')
+
+# Plot the results lag p-value (UNDER) -----------------------------------------
+ps_df_uloc <- extract_element(s3_under_loc_list, 'pvalue', 'location')
+
+s3_p_underloc <- ggplot(ps_df_uloc, aes(variable, value)) +
+    geom_boxplot() +
+    geom_point(alpha = 0.2, position = 'jitter') +
+    geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
+    geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
+    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+    coord_flip() +
+    ylab('p-value of temporally-lagged spatial lag') + xlab('') +
+    ggtitle('Scenario 3 (raw location, underestimate)')
+
+# Plot coefficients
+coef3_interval_uloc <- slim_coefs(s3_under_loc_list)
+
+s3_coef_underloc <- ggplot(coef3_interval_uloc, aes(variable, qi_median,
                                               ymin = qi_min, ymax = qi_max)) +
     geom_pointrange() +
     geom_hline(yintercept = c(2), linetype = 'dotted') +
