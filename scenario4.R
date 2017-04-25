@@ -3,6 +3,7 @@ simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 
 s4_under_list <- list()
+s4_over_list <- list()
 set.seed(seed)
 
 for (u in 1:nsims) {
@@ -46,16 +47,24 @@ for (u in 1:nsims) {
     # Estimate models
     s4_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 
-#    s4_over <- lm(y ~ x1 + x2 + ytm1, data = sw)
+    s4_over <- lm(y ~ x1 + x2 + ytm1 + lag_wy, data = sw)
 
     # Save estimates
     s4_under_list <- results_combiner(s4_under_list, s4_under)
+    s4_over_list <- results_combiner(s4_over_list, s4_over)
 }
 
 # Plot the results
-s4_p <- p_plot(s4_under_list, 'lag_wy', 'Scenario 4 (mischaracterised)')
-s4_coef <- coef_plot(s4_under_list, 'Scenario 4 (mischaracterised)')
+s4_p_under <- p_plot(s4_under_list, 'lag_wy', 'Scenario 4 (mischaracterised, underestimated)')
+s4_coef_under <- coef_plot(s4_under_list, 'Scenario 4 (mischaracterised, underestimated)')
 
-pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 6)
-    gridExtra::grid.arrange(s4_p, s4_coef, ncol = 2)
+s4_p_over <- p_plot(s4_over_list, 'lag_wy', 'Scenario 4 (mischaracterised, overestimated)')
+s4_coef_over <- coef_plot(s4_over_list,
+                          'Scenario 4 (mischaracterised, overestimated)',
+                          six = TRUE)
+
+pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 12)
+    gridExtra::grid.arrange(s4_p, s4_coef,
+                            s4_p_over, s4_coef_over,
+                            ncol = 2)
 dev.off()

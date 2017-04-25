@@ -3,6 +3,7 @@ simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 
 s5_under_list <- list()
+s5_over_list <- list()
 set.seed(seed)
 
 for (u in 1:nsims) {
@@ -49,14 +50,23 @@ for (u in 1:nsims) {
     # Estimate models
     s5_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 
+    s5_over <- lm(y ~ x1 + x2 + ytm1 + lag_wy, data = sw)
+
     # Save estimates
     s5_under_list <- results_combiner(s5_under_list, s5_under)
+    s5_over_list <- results_combiner(s5_over_list, s5_over)
 }
 
 # Plot the results
-s5_p <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised)')
-s5_coef <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised)')
+s5_p_under <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised, under)')
+s5_coef_under <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised, under)')
 
-pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 6)
-    gridExtra::grid.arrange(s5_p, s5_coef, ncol = 2)
+s5_p_over <- p_plot(s5_over_list, 'lag_wy', 'Scenario 5 (mischaracterised, over)')
+s5_coef_over <- coef_plot(s5_over_list, 'Scenario 5 (mischaracterised, over)',
+                          six = TRUE)
+
+pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 12)
+    gridExtra::grid.arrange(s5_p_under, s5_coef_under,
+                            s5_p_over, s5_coef_over,
+                            ncol = 2)
 dev.off()

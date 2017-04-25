@@ -174,16 +174,19 @@ p_plot <- function(results, var, title) {
     return(p)
 }
 
-coef_plot <- function(results, title) {
+coef_plot <- function(results, title, six = FALSE) {
     extracted <- slim_coefs(results)
 
     p <- ggplot(extracted, aes(variable, qi_median, ymin = qi_min,
                                                ymax = qi_max)) +
         geom_pointrange() +
-        geom_hline(yintercept = c(2, 3), linetype = 'dotted') +
         geom_hline(yintercept = 0, colour = 'red') +
         ylab('Coefficient Estimate\n') + xlab('\nVariable') +
         ggtitle(title)
+    if (!isTRUE(six))
+        p <- p + geom_hline(yintercept = c(2, 3), linetype = 'dotted')
+    else if (six)
+        p <- p + geom_hline(yintercept = c(0.6, 2, 3), linetype = 'dotted')
 
     return(p)
 }
