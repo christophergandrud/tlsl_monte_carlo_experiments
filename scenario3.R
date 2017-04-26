@@ -3,9 +3,6 @@ simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 
 s3_under_list <- list()
-
-s3_under_loc_list <- list()
-
 s3_over_list <- list()
 set.seed(seed)
 
@@ -21,7 +18,7 @@ for (u in 1:nsims) {
     epsilon <- rnorm(N, 0, 1)
 
     # Generate response
-    y <- alpha + b1*x1 + b2*x2_df$X2 + epsilon
+    y <- alpha + b1*x1 + rho*x2_df$X2 + epsilon
 
     # Create global monadic spatial weight for y
     comb <- data.frame(id = i, t = t, y = y,
@@ -44,31 +41,24 @@ for (u in 1:nsims) {
     s3_under <- lm(y ~ x1 + lag_wy, data = sw)
     s3_over <- lm(y ~ x1 + x2 + lag_wy, data = sw)
 
-    s3_under_loc <- lm(y ~ x1 + location, data = sw)
-
     # Save estimates
     s3_under_list <- results_combiner(s3_under_list, s3_under)
     s3_over_list <- results_combiner(s3_over_list, s3_over)
-
-    s3_under_loc_list <- results_combiner(s3_under_loc_list, s3_under_loc)
 }
 
 # Plot the results (UNDER) ----------
 s3_p_under <- p_plot(s3_under_list, 'lag_wy', 'Scenario 3 (underestimate)')
-s3_coef_under <- coef_plot(s3_under_list, 'Scenario 3 (underestimate)')
-
-# Plot the results (UNDER, LOCSTION) ----------
-s3_p_underloc <- p_plot(s3_under_loc_list, 'location', 'Scenario 3 (underestimate, location)')
-s3_coef_underloc <- coef_plot(s3_under_loc_list, 'Scenario 3 (underestimate, location)')
+s3_coef_under <- coef_plot(s3_under_list, 'Scenario 3 (underestimate)',
+                           yintercepts = 2)
 
 # Plot the results (OVER) ----------
 s3_p_over <- p_plot(s3_over_list, 'lag_wy', 'Scenario 3 (overestimate)')
-s3_coef_over <- coef_plot(s3_over_list, 'Scenario 3 (overestimate)')
+s3_coef_over <- coef_plot(s3_over_list, 'Scenario 3 (overestimate)',
+                          yintercepts = c(0.001, 2))
 
-pdf(file = 'mc_figures/scenario3_plots.pdf', width = 18, height = 18)
+pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 12)
 gridExtra::grid.arrange(
     s3_p_under, s3_coef_under,
-    s3_p_underloc, s3_coef_underloc,
     s3_p_over, s3_coef_over,
     ncol = 2)
 dev.off()

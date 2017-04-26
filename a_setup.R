@@ -48,6 +48,7 @@ obs_per_time <- N/t_per_indiv
 alpha = 1
 b1 = 2
 b2 = 3
+rho = 0.001
 
 # AR
 AR <- phi <- 0.6
@@ -174,7 +175,7 @@ p_plot <- function(results, var, title) {
     return(p)
 }
 
-coef_plot <- function(results, title, six = FALSE) {
+coef_plot <- function(results, title, yintercepts) {
     extracted <- slim_coefs(results)
 
     p <- ggplot(extracted, aes(variable, qi_median, ymin = qi_min,
@@ -183,11 +184,12 @@ coef_plot <- function(results, title, six = FALSE) {
         geom_hline(yintercept = 0, colour = 'red') +
         ylab('Coefficient Estimate\n') + xlab('\nVariable') +
         ggtitle(title)
-    if (!isTRUE(six))
-        p <- p + geom_hline(yintercept = c(2, 3), linetype = 'dotted')
-    else if (six)
-        p <- p + geom_hline(yintercept = c(0.6, 2, 3), linetype = 'dotted')
-
+    if (missing(yintercepts))
+        yi <- c(2, 3)
+    else 
+        yi = yintercepts
+    p <- p + geom_hline(yintercept = yi, linetype = 'dotted')
+    
     return(p)
 }
 

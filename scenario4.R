@@ -61,10 +61,10 @@ s4_coef_under <- coef_plot(s4_under_list, 'Scenario 4 (mischaracterised, underes
 s4_p_over <- p_plot(s4_over_list, 'lag_wy', 'Scenario 4 (mischaracterised, overestimated)')
 s4_coef_over <- coef_plot(s4_over_list,
                           'Scenario 4 (mischaracterised, overestimated)',
-                          six = TRUE)
+                          yintercepts = c(0.6, 2, 3))
 
 pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 12)
-    gridExtra::grid.arrange(s4_p, s4_coef,
+    gridExtra::grid.arrange(s4_p_under, s4_coef_under,
                             s4_p_over, s4_coef_over,
                             ncol = 2)
 dev.off()

@@ -21,8 +21,8 @@ for (u in 1:nsims) {
         yinit <- rnorm(1, 0, 1)
 
         for(l in 1:length(y)){
-            if(l==1) y[l] <- alpha + b1*x1[l] + b2*x2_temp[l] + phi * yinit + epsilon[l]
-            if(l > 1) y[l] <- alpha + b1*x1[l] + b2*x2_temp[l] + phi * y[l-1] + epsilon[l]
+            if(l==1) y[l] <- alpha + b1*x1[l] + rho*x2_temp[l] + phi * yinit + epsilon[l]
+            if(l > 1) y[l] <- alpha + b1*x1[l] + rho*x2_temp[l] + phi * y[l-1] + epsilon[l]
         }
         temp <- data.frame(id = n, t = 1:t_per_indiv, y = y[-1],
                            x1 = x1[-1], x2 = x2_temp[-1],
@@ -59,11 +59,12 @@ for (u in 1:nsims) {
 
 # Plot the results
 s5_p_under <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised, under)')
-s5_coef_under <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised, under)')
+s5_coef_under <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised, under)',
+                           yintercepts = c(0.001, 2))
 
 s5_p_over <- p_plot(s5_over_list, 'lag_wy', 'Scenario 5 (mischaracterised, over)')
 s5_coef_over <- coef_plot(s5_over_list, 'Scenario 5 (mischaracterised, over)',
-                          six = TRUE)
+                          yintercepts = c(0.001, 0.6, 2))
 
 pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 12)
     gridExtra::grid.arrange(s5_p_under, s5_coef_under,
