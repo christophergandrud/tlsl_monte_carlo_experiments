@@ -59,6 +59,9 @@ for (i in all_results) {
     mse_df <- rbind(mse_df, mtemp)
 }
 
-ggplot(mse_df, aes(scenario, mse, group = variable)) +
-    facet_grid(~variable) +
-    geom_line()
+mse_df$under <- grepl('under', mse_df$scenario)
+
+ggplot(mse_df, aes(scenario, mse, group = variable, colour = variable,
+                   shape = variable)) +
+    facet_grid(~under) +
+    geom_point()
