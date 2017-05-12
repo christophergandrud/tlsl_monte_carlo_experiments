@@ -4,13 +4,22 @@
 # MIT License
 # ------------------------------------------------------------------------------
 
-setwd('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/')
-
+# Install and load required packages
 library(simpleSetup)
-pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra',
-          'ape')
-simpleSetup::library_install(pkgs)
+pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
+          'gridExtra', 'ape')
 
+if (!('spatialWeights' %in% installed.packages()[,1]))
+    devtools::install_github('christophergandrud/spatialWeights')
+
+simpleSetup::library_install(pkgs[-1])
+
+# Set working directory
+dirs <- c('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/',
+          '/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments')
+set_valid_wd(dirs)
+
+# Use BW plotting theme
 theme_set(theme_bw())
 
 # Set seed
@@ -186,10 +195,9 @@ coef_plot <- function(results, title, yintercepts) {
         ggtitle(title)
     if (missing(yintercepts))
         yi <- c(2, 3)
-    else 
+    else
         yi = yintercepts
     p <- p + geom_hline(yintercept = yi, linetype = 'dotted')
-    
+
     return(p)
 }
-
