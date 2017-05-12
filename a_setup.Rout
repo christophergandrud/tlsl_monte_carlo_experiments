@@ -25,12 +25,15 @@ Type 'q()' to quit R.
 > # MIT License
 > # ------------------------------------------------------------------------------
 > 
-> setwd('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/')
-> 
+> # Install and load required packages
 > library(simpleSetup)
-> pkgs <- c('spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2', 'gridExtra',
-+           'ape')
-> simpleSetup::library_install(pkgs)
+> pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
++           'gridExtra', 'ape')
+> 
+> if (!('spatialWeights' %in% installed.packages()[,1]))
++     devtools::install_github('christophergandrud/spatialWeights')
+> 
+> simpleSetup::library_install(pkgs[-1])
 
 Attaching package: ‘dplyr’
 
@@ -54,6 +57,13 @@ The following object is masked from ‘package:dplyr’:
     combine
 
 > 
+> # Set working directory
+> dirs <- c('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/',
++           '/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments')
+> set_valid_wd(dirs)
+Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/
+> 
+> # Use BW plotting theme
 > theme_set(theme_bw())
 > 
 > # Set seed
@@ -62,7 +72,6 @@ The following object is masked from ‘package:dplyr’:
 > # Number of cores
 > num_cores <- 7
 > 
-> #### TRUE VALUES
 > # Number of simulations
 > nsims = 1000
 > 
@@ -92,8 +101,6 @@ The following object is masked from ‘package:dplyr’:
 > b1 = 2
 > b2 = 3
 > rho = 0.001
-> 
-> # AR
 > AR <- phi <- 0.6
 > 
 > #### FUNCTIONS
@@ -168,7 +175,8 @@ The following object is masked from ‘package:dplyr’:
 > extract_element <- function(results, type, var) {
 +     all <- results[[type]]
 +     sub <- cbind(as.data.frame(all), vars = attributes(all)$names)
-+     if (!missing(var)) sub <- subset(sub, vars == var)
++     if (!missing(var))
++         sub <- subset(sub, vars == var)
 +     names(sub) <- c('value', 'variable')
 +     return(sub)
 + }
@@ -202,6 +210,21 @@ The following object is masked from ‘package:dplyr’:
 +     return(coef_interval)
 + }
 > 
+> # Mean squared error
+> mse <- function(results, vars, param_labels, p) {
++     coefs <- extract_element(results, type = 'coefs')
++     mse_fun__ <- function(phat, p) sum((phat - p)^2) / length(phat)
++     mse_df <- data.frame()
++     for (i in vars) {
++         position <- grep(i, vars)
++         temp <- coefs[coefs$variable == i, ]
++         mse_value <- mse_fun__(temp$value, p = p)
++         mse_df <- rbind(mse_df, data.frame(variable = param_labels[position],
++                                            mse = mse_value))
++     }
++     return(mse_df)
++ }
+> 
 > # Plotters
 > p_plot <- function(results, var, title) {
 +     extracted <- extract_element(results, 'pvalue', var)
@@ -229,14 +252,13 @@ The following object is masked from ‘package:dplyr’:
 +         ggtitle(title)
 +     if (missing(yintercepts))
 +         yi <- c(2, 3)
-+     else 
++     else
 +         yi = yintercepts
 +     p <- p + geom_hline(yintercept = yi, linetype = 'dotted')
-+     
++ 
 +     return(p)
 + }
 > 
-> 
 > proc.time()
    user  system elapsed 
-  2.836   0.165   3.122 
+  2.027   0.157   2.333 

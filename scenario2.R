@@ -58,6 +58,15 @@ for (u in 1:nsims) {
 
 }
 
+# Find the mean squared error for DGP variable coefficients
+s2_under_list[['mse']] <- mse(s2_under_list, c('x1'), 'b1', b1)
+s2_over_list[['mse']] <- mse(s2_over_list, c('x1', 'x2'),
+                            c('b1', 'phi'), c(b1, AR))
+
+# Save simulations -------------------------------------------------------------
+save(s2_over_list, s2_under_list, file = 'mc_results/scenario2.rda')
+
+
 # Plot the results (UNDER) ----------
 s2_p_under <- p_plot(s2_under_list, 'lag_wy', 'Scenario 2 (underestimate)')
 s2_coef_under <- coef_plot(s2_under_list, 'Scenario 2 (underestimate)')

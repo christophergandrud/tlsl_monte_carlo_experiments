@@ -4101,6 +4101,15 @@ Note: p-value of Moran's I is only found when mc_cores = 1.
 Continuous location variable detected. Proximity found using method = euclidean.
 
 > 
+> # Find the mean squared error for DGP variable coefficients
+> s2_under_list[['mse']] <- mse(s2_under_list, c('x1'), 'b1', b1)
+> s2_over_list[['mse']] <- mse(s2_over_list, c('x1', 'x2'),
++                             c('b1', 'phi'), c(b1, AR))
+> 
+> # Save simulations -------------------------------------------------------------
+> save(s2_over_list, s2_under_list, file = 'mc_results/scenario2.rda')
+> 
+> 
 > # Plot the results (UNDER) ----------
 > s2_p_under <- p_plot(s2_under_list, 'lag_wy', 'Scenario 2 (underestimate)')
 > s2_coef_under <- coef_plot(s2_under_list, 'Scenario 2 (underestimate)')
@@ -4118,4 +4127,4 @@ null device
 > 
 > proc.time()
    user  system elapsed 
-418.764 294.922 258.905 
+384.664 265.852 246.823 

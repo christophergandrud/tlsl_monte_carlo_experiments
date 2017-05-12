@@ -1,5 +1,6 @@
 RDIR = .
 SETUP_OUT = a_setup.Rout
+PLOTS_OUT = z_mc_results_plots.Rout
 
 RSOURCE = $(wildcard $(RDIR)/*.R)
 
@@ -15,3 +16,4 @@ clean:
 
 cleanSet:
 	rm -fv $(SETUP_OUT)
+	rm -fv $(PLOTS_OUT)

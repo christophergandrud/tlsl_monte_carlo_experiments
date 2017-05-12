@@ -28,7 +28,6 @@ seed <- 1234
 # Number of cores
 num_cores <- 7
 
-#### TRUE VALUES
 # Number of simulations
 nsims = 1000
 
@@ -58,8 +57,6 @@ alpha = 1
 b1 = 2
 b2 = 3
 rho = 0.001
-
-# AR
 AR <- phi <- 0.6
 
 #### FUNCTIONS
@@ -134,7 +131,8 @@ results_combiner <- function(l, m) {
 extract_element <- function(results, type, var) {
     all <- results[[type]]
     sub <- cbind(as.data.frame(all), vars = attributes(all)$names)
-    if (!missing(var)) sub <- subset(sub, vars == var)
+    if (!missing(var))
+        sub <- subset(sub, vars == var)
     names(sub) <- c('value', 'variable')
     return(sub)
 }
@@ -166,6 +164,21 @@ slim_coefs <- function(results) {
                                 qi_var = 'value')
     coef_interval <- subset(coef_interval, variable != '(Intercept)')
     return(coef_interval)
+}
+
+# Mean squared error
+mse <- function(results, vars, param_labels, p) {
+    coefs <- extract_element(results, type = 'coefs')
+    mse_fun__ <- function(phat, p) sum((phat - p)^2) / length(phat)
+    mse_df <- data.frame()
+    for (i in vars) {
+        position <- grep(i, vars)
+        temp <- coefs[coefs$variable == i, ]
+        mse_value <- mse_fun__(temp$value, p = p)
+        mse_df <- rbind(mse_df, data.frame(variable = param_labels[position],
+                                           mse = mse_value))
+    }
+    return(mse_df)
 }
 
 # Plotters

@@ -46,6 +46,14 @@ for (u in 1:nsims) {
     s3_over_list <- results_combiner(s3_over_list, s3_over)
 }
 
+# Find the mean squared error for DGP variable coefficients
+s3_under_list[['mse']] <- mse(s3_under_list, c('x1'), 'b1', b1)
+s3_over_list[['mse']] <- mse(s3_over_list, c('x1', 'x2'),
+                            c('b1', 'rho'), c(b1, rho))
+
+# Save simulations -------------------------------------------------------------
+save(s3_over_list, s3_under_list, file = 'mc_results/scenario3.rda')
+
 # Plot the results (UNDER) ----------
 s3_p_under <- p_plot(s3_under_list, 'lag_wy', 'Scenario 3 (underestimate)')
 s3_coef_under <- coef_plot(s3_under_list, 'Scenario 3 (underestimate)',

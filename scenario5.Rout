@@ -4100,6 +4100,21 @@ Note: p-value of Moran's I is only found when mc_cores = 1.
 Continuous location variable detected. Proximity found using method = euclidean.
 
 > 
+> # Find the mean squared error for DGP variable coefficients
+> s5_under_list[['mse']] <- mse(s5_under_list, c('x1'), 'b1', b1)
+> s5_over_list[['mse']] <- mse(s5_over_list, c('x1', 'x2', 'ytm1'),
++                             c('b1', 'rho', 'phi'), c(b1, rho, phi))
+Warning messages:
+1: In phat - p :
+  longer object length is not a multiple of shorter object length
+2: In phat - p :
+  longer object length is not a multiple of shorter object length
+3: In phat - p :
+  longer object length is not a multiple of shorter object length
+> 
+> # Save simulations -------------------------------------------------------------
+> save(s5_over_list, s5_under_list, file = 'mc_results/scenario5.rda')
+> 
 > # Plot the results
 > s5_p_under <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised, under)')
 > s5_coef_under <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised, under)',
@@ -4119,4 +4134,4 @@ null device
 > 
 > proc.time()
    user  system elapsed 
-798.974 254.192 753.968 
+634.087 233.530 574.113 
