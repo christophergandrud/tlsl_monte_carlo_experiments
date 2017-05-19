@@ -166,19 +166,19 @@ slim_coefs <- function(results) {
     return(coef_interval)
 }
 
-# Mean squared error
-mse <- function(results, vars, param_labels, p) {
+# Root mean squared error
+rmse <- function(results, vars, param_labels, p) {
     coefs <- extract_element(results, type = 'coefs')
-    mse_fun__ <- function(phat, p) sum((phat - p)^2) / length(phat)
-    mse_df <- data.frame()
+    rmse_fun__ <- function(phat, p) sqrt(sum((phat - p)^2) / length(phat))
+    rmse_df <- data.frame()
     for (i in vars) {
         position <- grep(i, vars)
         temp <- coefs[coefs$variable == i, ]
-        mse_value <- mse_fun__(temp$value, p = p)
-        mse_df <- rbind(mse_df, data.frame(variable = param_labels[position],
-                                           mse = mse_value))
+        rmse_value <- rmse_fun__(temp$value, p = p)
+        rmse_df <- rbind(rmse_df, data.frame(variable = param_labels[position],
+                                           rmse = rmse_value))
     }
-    return(mse_df)
+    return(rmse_df)
 }
 
 # Plotters

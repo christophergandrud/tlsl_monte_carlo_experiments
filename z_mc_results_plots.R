@@ -51,17 +51,17 @@ ggsave('mc_figures/mc_lagwy_pvalues.pdf', height = 12, width = 10)
 
 
 # Coefficient Bias ----- -------------------------------------------------------
-mse_df <- data.frame()
+rmse_df <- data.frame()
 for (i in all_results) {
     message(i)
-    mtemp <- eval(parse(text=paste(i)))[['mse']]
+    mtemp <- eval(parse(text=paste(i)))[['rmse']]
     mtemp$scenario <- i
-    mse_df <- rbind(mse_df, mtemp)
+    rmse_df <- rbind(rmse_df, mtemp)
 }
 
-mse_df$under <- grepl('under', mse_df$scenario)
+rmse_df$under <- grepl('under', rmse_df$scenario)
 
-ggplot(mse_df, aes(scenario, mse, group = variable, colour = variable,
+ggplot(rmse_df, aes(scenario, rmse, group = variable, colour = variable,
                    shape = variable)) +
     facet_grid(~under) +
-    geom_point()
+    geom_point(size = 3)

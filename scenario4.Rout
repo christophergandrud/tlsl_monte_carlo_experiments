@@ -4097,9 +4097,9 @@ Note: p-value of Moran's I is only found when mc_cores = 1.
 Continuous location variable detected. Proximity found using method = euclidean.
 
 > 
-> # Find the mean squared error for DGP variable coefficients
-> s4_under_list[['mse']] <- mse(s4_under_list, c('x1'), 'b1', b1)
-> s4_over_list[['mse']] <- mse(s4_over_list, c('x1', 'x2', 'ytm1'),
+> # Find the root mean squared error for DGP variable coefficients
+> s4_under_list[['rmse']] <- rmse(s4_under_list, c('x1'), 'b1', b1)
+> s4_over_list[['rmse']] <- rmse(s4_over_list, c('x1', 'x2', 'ytm1'),
 +                              c('b1', 'b2', 'phi'), c(b1, b2, phi))
 Warning messages:
 1: In phat - p :
@@ -4131,4 +4131,4 @@ null device
 > 
 > proc.time()
    user  system elapsed 
-391.100 229.229 301.089 
+406.916 234.310 310.066 

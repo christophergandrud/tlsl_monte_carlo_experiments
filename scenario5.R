@@ -57,9 +57,9 @@ for (u in 1:nsims) {
     s5_over_list <- results_combiner(s5_over_list, s5_over)
 }
 
-# Find the mean squared error for DGP variable coefficients
-s5_under_list[['mse']] <- mse(s5_under_list, c('x1'), 'b1', b1)
-s5_over_list[['mse']] <- mse(s5_over_list, c('x1', 'x2', 'ytm1'),
+# Find the root mean squared error for DGP variable coefficients
+s5_under_list[['rmse']] <- rmse(s5_under_list, c('x1'), 'b1', b1)
+s5_over_list[['rmse']] <- rmse(s5_over_list, c('x1', 'x2', 'ytm1'),
                             c('b1', 'rho', 'phi'), c(b1, rho, phi))
 
 # Save simulations -------------------------------------------------------------

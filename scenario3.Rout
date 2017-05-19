@@ -4089,9 +4089,9 @@ Note: p-value of Moran's I is only found when mc_cores = 1.
 Continuous location variable detected. Proximity found using method = euclidean.
 
 > 
-> # Find the mean squared error for DGP variable coefficients
-> s3_under_list[['mse']] <- mse(s3_under_list, c('x1'), 'b1', b1)
-> s3_over_list[['mse']] <- mse(s3_over_list, c('x1', 'x2'),
+> # Find the root mean squared error for DGP variable coefficients
+> s3_under_list[['rmse']] <- rmse(s3_under_list, c('x1'), 'b1', b1)
+> s3_over_list[['rmse']] <- rmse(s3_over_list, c('x1', 'x2'),
 +                             c('b1', 'rho'), c(b1, rho))
 > 
 > # Save simulations -------------------------------------------------------------
@@ -4118,4 +4118,4 @@ null device
 > 
 > proc.time()
    user  system elapsed 
-535.760 234.904 443.687 
+510.979 221.911 428.024 
