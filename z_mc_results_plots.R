@@ -26,8 +26,8 @@ for (i in all_results) {
 
 pvalues_df$under_l <- grepl('under', pvalues_df$scenario)
 
-pvalues_df$Type[pvalues_df$under_l] <- "Under Estimated"
-pvalues_df$Type[pvalues_df$under_l == FALSE] <- "Over Estimated"
+pvalues_df$Type[pvalues_df$under_l] <- "Under-estimated"
+pvalues_df$Type[pvalues_df$under_l == FALSE] <- "Over-estimated"
 
 p_labels <- c('Scenario 1 (over)', 'Scenario 1 (under)',
               'Scenario 2 (over)', 'Scenario 2 (under)',
@@ -42,7 +42,7 @@ ggplot(pvalues_df, aes(scenario, value, group = scenario,
     geom_point(alpha = 0.2, position = 'jitter') +
     geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
     geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
-    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.2, 0.5, 1), limits = c(0, 1)) +
+    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.5, 1), limits = c(0, 1)) +
     scale_color_manual(values =  c('#bdbdbd', '#636363')) +
     coord_flip() +
     ylab('p-values for temporally-lagged spatial lag') + xlab('')
