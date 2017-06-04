@@ -38,6 +38,7 @@ for (u in 1:nsims) {
                             comb, id_var = 'id', time_var = 't',
                             y_var = 'y', location_var = 'location',
                             weight_name = 'wy', mc_cores = num_cores)
+    sw$t <- as.integer(sw$t)
     # Lag weight
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
                 mutate(lag_wy = dplyr::lag(wy, order_by = id))
@@ -64,18 +65,3 @@ s5_over_list[['rmse']] <- rmse(s5_over_list, c('x1', 'x2', 'ytm1'),
 
 # Save simulations -------------------------------------------------------------
 save(s5_over_list, s5_under_list, file = 'mc_results/scenario5.rda')
-
-# Plot the results
-s5_p_under <- p_plot(s5_under_list, 'lag_wy', 'Scenario 5 (mischaracterised, under)')
-s5_coef_under <- coef_plot(s5_under_list, 'Scenario 5 (mischaracterised, under)',
-                           yintercepts = c(0.001, 2))
-
-s5_p_over <- p_plot(s5_over_list, 'lag_wy', 'Scenario 5 (mischaracterised, over)')
-s5_coef_over <- coef_plot(s5_over_list, 'Scenario 5 (mischaracterised, over)',
-                          yintercepts = c(0.001, 0.6, 2))
-
-pdf(file = 'mc_figures/scenario5_plots.pdf', width = 12, height = 12)
-    gridExtra::grid.arrange(s5_p_under, s5_coef_under,
-                            s5_p_over, s5_coef_over,
-                            ncol = 2)
-dev.off()

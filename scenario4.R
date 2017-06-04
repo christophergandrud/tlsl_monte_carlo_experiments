@@ -35,6 +35,7 @@ for (u in 1:nsims) {
                             comb, id_var = 'id', time_var = 't',
                             y_var = 'y', location_var = 'location',
                             weight_name = 'wy', mc_cores = num_cores)
+    sw$t <- as.integer(sw$t)
     # Lag weight
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
                 mutate(lag_wy = dplyr::lag(wy, order_by = id))
@@ -61,18 +62,3 @@ s4_over_list[['rmse']] <- rmse(s4_over_list, c('x1', 'x2', 'ytm1'),
 
 # Save simulations -------------------------------------------------------------
 save(s4_over_list, s4_under_list, file = 'mc_results/scenario4.rda')
-
-# Plot the results
-s4_p_under <- p_plot(s4_under_list, 'lag_wy', 'Scenario 4 (mischaracterised, underestimated)')
-s4_coef_under <- coef_plot(s4_under_list, 'Scenario 4 (mischaracterised, underestimated)')
-
-s4_p_over <- p_plot(s4_over_list, 'lag_wy', 'Scenario 4 (mischaracterised, overestimated)')
-s4_coef_over <- coef_plot(s4_over_list,
-                          'Scenario 4 (mischaracterised, overestimated)',
-                          yintercepts = c(0.6, 2, 3))
-
-pdf(file = 'mc_figures/scenario4_plots.pdf', width = 12, height = 12)
-    gridExtra::grid.arrange(s4_p_under, s4_coef_under,
-                            s4_p_over, s4_coef_over,
-                            ncol = 2)
-dev.off()

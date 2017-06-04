@@ -8,13 +8,7 @@ set.seed(seed)
 
 for (u in 1:nsims) {
     x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
-
     x2_df <- x2_spatial_builder(tu = t_per_indiv)
-#    message("Original X2 Moran's I per year")
-#    for (l in 1:t_per_indiv) {
-#        sub <- subset(x2_df, t == l)$X2
-#        print(sprintf('%s: %s', l, format.pval(Moran.I(sub, W)$p.value)))
-#    }
     epsilon <- rnorm(N, 0, 1)
 
     # Generate response
@@ -28,6 +22,7 @@ for (u in 1:nsims) {
         comb, id_var = 'id', time_var = 't',
         y_var = 'y', location_var = 'location',
         weight_name = 'wy', mc_cores = num_cores)
+    sw$t <- as.integer(sw$t)
     # Lag weight
     sw <- sw %>% arrange(id, t) %>% group_by(id) %>%
         mutate(lag_wy = dplyr::lag(wy, order_by = id))
@@ -53,20 +48,3 @@ s3_over_list[['rmse']] <- rmse(s3_over_list, c('x1', 'x2'),
 
 # Save simulations -------------------------------------------------------------
 save(s3_over_list, s3_under_list, file = 'mc_results/scenario3.rda')
-
-# Plot the results (UNDER) ----------
-s3_p_under <- p_plot(s3_under_list, 'lag_wy', 'Scenario 3 (underestimate)')
-s3_coef_under <- coef_plot(s3_under_list, 'Scenario 3 (underestimate)',
-                           yintercepts = 2)
-
-# Plot the results (OVER) ----------
-s3_p_over <- p_plot(s3_over_list, 'lag_wy', 'Scenario 3 (overestimate)')
-s3_coef_over <- coef_plot(s3_over_list, 'Scenario 3 (overestimate)',
-                          yintercepts = c(0.001, 2))
-
-pdf(file = 'mc_figures/scenario3_plots.pdf', width = 12, height = 12)
-gridExtra::grid.arrange(
-    s3_p_under, s3_coef_under,
-    s3_p_over, s3_coef_over,
-    ncol = 2)
-dev.off()

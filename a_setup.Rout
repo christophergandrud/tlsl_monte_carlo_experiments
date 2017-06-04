@@ -73,7 +73,7 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > num_cores <- 7
 > 
 > # Number of simulations
-> nsims = 1000
+> nsims = 100
 > 
 > # Burn in
 > burnin <- 2
@@ -261,4 +261,4 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > proc.time()
    user  system elapsed 
-  2.232   0.172   3.811 
+  2.413   0.181   2.777 

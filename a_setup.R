@@ -7,7 +7,7 @@
 # Install and load required packages
 library(simpleSetup)
 pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
-          'gridExtra', 'ape')
+          'gridExtra', 'ape', 'tibble', 'xtable')
 
 if (!('spatialWeights' %in% installed.packages()[,1]))
     devtools::install_github('christophergandrud/spatialWeights')

@@ -48,17 +48,3 @@ s1_over_list[['rmse']] <- rmse(s1_over_list, c('x1', 'x2'),
 
 # Save simulations -------------------------------------------------------------
 save(s1_over_list, s1_under_list, file = 'mc_results/scenario1.rda')
-
-
-# Plot the results (UNDER) ----------
-s1_p_under <- p_plot(s1_under_list, 'lag_wy', 'Scenario 1 (underestimate)')
-s1_coef_under <- coef_plot(s1_under_list, 'Scenario 1 (underestimate)')
-
-# Plot the results (OVER) ----------
-s1_p_over <- p_plot(s1_over_list, 'lag_wy', 'Scenario 1 (overestimate)')
-s1_coef_over <- coef_plot(s1_over_list, 'Scenario 1 (overestimate)')
-
-pdf(file = 'mc_figures/scenario1_plots.pdf', width = 12, height = 12)
-    gridExtra::grid.arrange(s1_p_under, s1_coef_under, s1_p_over, s1_coef_over,
-                            ncol = 2)
-dev.off()
