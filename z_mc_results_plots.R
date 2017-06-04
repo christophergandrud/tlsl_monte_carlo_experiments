@@ -124,7 +124,7 @@ fdr_s2_range_df <- rbind(fdr_s2_range_df1, fdr_s2_range_df2)
 fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, linetype = type)) +
     geom_line() +
     scale_linetype(name = "") +
-    geom_hline(yintercept = 0, linetype = 'dotted') +
+    geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
     scale_y_continuous(limits = c(0, 1)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
     ylab('TLSL False Discovery Rate\n') + xlab(expression(phi))
@@ -198,7 +198,7 @@ fdr_s3_range <- ggplot(fdr_s3_range_df, aes(rho_log, fdr, group = type,
                                             linetype = type)) +
     geom_line() +
     scale_linetype(name = "") +
-    geom_hline(yintercept = 0, linetype = 'dotted') +
+    geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
     scale_x_continuous(breaks = unique(rmse_s3_range_df$rho_log),
                        labels = as.numeric(names(s3_rho_range_under_list))) +
     scale_y_continuous(limits = c(0, 1)) +
