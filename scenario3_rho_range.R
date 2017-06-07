@@ -9,8 +9,6 @@ rho_range <- c(0.00001, 0.0001, 0.001, 0.01, 0.01)
 s3_rho_range_under_list <- list()
 s3_rho_range_over_list <- list()
 
-nsims_less <- 100
-
 one_run_rho <- function(n = nsims_less, rho, under) {
     out <- list()
     for (u in 1:n) {

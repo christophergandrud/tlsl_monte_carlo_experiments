@@ -28,7 +28,7 @@ Type 'q()' to quit R.
 > # Install and load required packages
 > library(simpleSetup)
 > pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
-+           'gridExtra', 'ape')
++           'gridExtra', 'ape', 'tibble', 'xtable')
 > 
 > if (!('spatialWeights' %in% installed.packages()[,1]))
 +     devtools::install_github('christophergandrud/spatialWeights')
@@ -73,7 +73,7 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > num_cores <- 7
 > 
 > # Number of simulations
-> nsims = 100
+> nsims = 1000
 > 
 > # Burn in
 > burnin <- 2
@@ -212,13 +212,14 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > # Root mean squared error
 > rmse <- function(results, vars, param_labels, p) {
++ browser()
 +     coefs <- extract_element(results, type = 'coefs')
-+     rmse_fun__ <- function(phat, p) sqrt(sum((phat - p)^2) / length(phat))
++     rmse_fun__ <- function(phat, p) sqrt(mean((phat - p)^2))
 +     rmse_df <- data.frame()
 +     for (i in vars) {
 +         position <- grep(i, vars)
 +         temp <- coefs[coefs$variable == i, ]
-+         rmse_value <- rmse_fun__(temp$value, p = p)
++         rmse_value <- rmse_fun__(temp$value, p = p[position])
 +         rmse_df <- rbind(rmse_df, data.frame(variable = param_labels[position],
 +                                            rmse = rmse_value))
 +     }
@@ -261,4 +262,4 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > proc.time()
    user  system elapsed 
-  2.413   0.181   2.777 
+  2.329   0.178   2.687 

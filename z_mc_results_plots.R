@@ -15,8 +15,11 @@ results_files <- list.files('mc_results')
 lapply(sprintf('mc_results/%s', results_files), load, .GlobalEnv)
 rm(results_files)
 all_results <- Filter( function(x) 'list' %in% class( get(x) ), ls() )
-no_range_results <- all_results[!(all_results %in% c('s2_phi_range_over_list',
-                                                     's2_phi_range_under_list'))]
+no_range_results <- all_results[!(all_results %in%
+                                 c('s2_phi_range_over_list',
+                                   's2_phi_range_under_list',
+                                   's3_rho_range_over_list',
+                                   's3_rho_range_under_list'))]
 
 # False discovery rate formula
 fdr_fun <- function(x) (sum(x < 0.05)/length(x))
@@ -88,7 +91,7 @@ rmse_s2_range <- ggplot(rmse_s2_range_df, aes(phi, rmse, group = variable, linet
     geom_line() +
     scale_linetype(name = "") +
     geom_hline(yintercept = 0, linetype = 'dotted') +
-    scale_y_continuous(limits = c(0, 2.5)) +
+#    scale_y_continuous(limits = c(0, 2.5)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
     ylab('Bias (RMSE)\n') + xlab(expression(phi))
 
@@ -160,8 +163,8 @@ rmse_s3_range <- ggplot(rmse_s3_range_df, aes(rho_log, rmse, group = variable,
     scale_linetype(name = "") +
     scale_x_continuous(breaks = unique(rmse_s3_range_df$rho_log),
                        labels = as.numeric(names(s3_rho_range_under_list))) +
-    scale_y_continuous(limits = c(0, 2.5)) +
-    ylab('Bias (RMSE)\n') + xlab(expression(paste(rho, ' (log spacing)')))
+ #   scale_y_continuous(limits = c(0, 2.5)) +
+    ylab('Bias (RMSE)\n') + xlab(expression(paste(rho, ' (log spaced scale)')))
 
 
 # False Discovery Rate (underestimated)

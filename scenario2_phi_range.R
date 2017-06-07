@@ -9,8 +9,6 @@ phi_range <- seq(0.1, 0.9, by = 0.2)
 s2_phi_range_under_list <- list()
 s2_phi_range_over_list <- list()
 
-nsims_less <- 100
-
 one_run_phi <- function(n = nsims_less, phi, under) {
     out <- list()
     for (u in 1:n) {

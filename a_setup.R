@@ -31,6 +31,8 @@ num_cores <- 7
 # Number of simulations
 nsims = 1000
 
+nsims_less <- 100
+
 # Burn in
 burnin <- 2
 
@@ -169,12 +171,12 @@ slim_coefs <- function(results) {
 # Root mean squared error
 rmse <- function(results, vars, param_labels, p) {
     coefs <- extract_element(results, type = 'coefs')
-    rmse_fun__ <- function(phat, p) sqrt(sum((phat - p)^2) / length(phat))
+    rmse_fun__ <- function(phat, p) sqrt(mean((phat - p)^2))
     rmse_df <- data.frame()
     for (i in vars) {
         position <- grep(i, vars)
         temp <- coefs[coefs$variable == i, ]
-        rmse_value <- rmse_fun__(temp$value, p = p)
+        rmse_value <- rmse_fun__(temp$value, p = p[position])
         rmse_df <- rbind(rmse_df, data.frame(variable = param_labels[position],
                                            rmse = rmse_value))
     }

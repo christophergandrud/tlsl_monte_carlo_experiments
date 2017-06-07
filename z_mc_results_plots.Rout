@@ -25,6 +25,7 @@ Type 'q()' to quit R.
 > # MIT License
 > # ------------------------------------------------------------------------------
 > 
+> library(xtable)
 > library(ggplot2)
 > theme_set(theme_bw())
 > 
@@ -37,23 +38,37 @@ Type 'q()' to quit R.
 [1] "s1_over_list"  "s1_under_list"
 
 [[2]]
-[1] "s2_over_list"  "s2_under_list"
+[1] "s2_phi_range_under_list" "s2_phi_range_over_list" 
 
 [[3]]
-[1] "s3_over_list"  "s3_under_list"
+[1] "s2_over_list"  "s2_under_list"
 
 [[4]]
-[1] "s4_over_list"  "s4_under_list"
+[1] "s3_rho_range_under_list" "s3_rho_range_over_list" 
 
 [[5]]
+[1] "s3_over_list"  "s3_under_list"
+
+[[6]]
+[1] "s4_over_list"  "s4_under_list"
+
+[[7]]
 [1] "s5_over_list"  "s5_under_list"
 
 > rm(results_files)
 > all_results <- Filter( function(x) 'list' %in% class( get(x) ), ls() )
+> no_range_results <- all_results[!(all_results %in%
++                                  c('s2_phi_range_over_list',
++                                    's2_phi_range_under_list',
++                                    's3_rho_range_over_list',
++                                    's3_rho_range_under_list'))]
+> 
+> # False discovery rate formula
+> fdr_fun <- function(x) (sum(x < 0.05)/length(x))
 > 
 > # Plot p-values for TLSL -------------------------------------------------------
 > pvalues_df <- data.frame()
-> for (i in all_results) {
+> for (i in no_range_results) {
 +     message(i)
 +     ptemp <- extract_element(eval(parse(text=paste(i))), 'pvalue', 'lag_wy')
 +     ptemp$scenario <- i
