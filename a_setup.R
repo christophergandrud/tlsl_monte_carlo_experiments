@@ -58,7 +58,7 @@ obs_per_time <- N/t_per_indiv
 alpha = 1
 b1 = 2
 b2 = 3
-rho = 0.001
+theta_wz = 0.001
 AR <- phi <- 0.6
 
 #### FUNCTIONS
@@ -97,10 +97,10 @@ x2_spatial_builder <- function(tu) {
     W <- as.matrix(dist(location))
     diag(W) <- 0
     x2_df <- data.frame()
-    G <- vector()
+    Z <- vector()
     for (k in 1:tu) {
         g <- runif(n = obs_per_time, min = 0, max = 1)
-        X2 <- c(G, (colSums(W * g) + rnorm(obs_per_time, 0, 1)))
+        X2 <- c(Z, (colSums(W * g) + rnorm(obs_per_time, 0, 1)))
         temp <- data.frame(i = 1:n_indiv, t = k, X2 = X2, location = location)
         x2_df <- rbind(x2_df, temp)
     }

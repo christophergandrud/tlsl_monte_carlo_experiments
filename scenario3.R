@@ -12,7 +12,7 @@ for (u in 1:nsims) {
     epsilon <- rnorm(N, 0, 1)
 
     # Generate response
-    y <- alpha + b1*x1 + rho*x2_df$X2 + epsilon
+    y <- alpha + b1*x1 + theta_wz*x2_df$X2 + epsilon
 
     # Create global monadic spatial weight for y
     comb <- data.frame(id = i, t = t, y = y,
@@ -44,7 +44,7 @@ for (u in 1:nsims) {
 # Find the root mean squared error for DGP variable coefficients
 s3_under_list[['rmse']] <- rmse(s3_under_list, c('x1'), 'b1', b1)
 s3_over_list[['rmse']] <- rmse(s3_over_list, c('x1', 'x2'),
-                            c('b1', 'rho'), c(b1, rho))
+                            c('b1', 'theta_wz'), c(b1, theta_wz))
 
 # Save simulations -------------------------------------------------------------
 save(s3_over_list, s3_under_list, file = 'mc_results/scenario3.rda')

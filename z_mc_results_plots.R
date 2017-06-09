@@ -18,8 +18,8 @@ all_results <- Filter( function(x) 'list' %in% class( get(x) ), ls() )
 no_range_results <- all_results[!(all_results %in%
                                  c('s2_phi_range_over_list',
                                    's2_phi_range_under_list',
-                                   's3_rho_range_over_list',
-                                   's3_rho_range_under_list'))]
+                                   's3_theta_wz_range_over_list',
+                                   's3_theta_wz_range_under_list'))]
 
 # False discovery rate formula
 fdr_fun <- function(x) (sum(x < 0.05)/length(x))
@@ -135,77 +135,77 @@ fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, linetype = t
 
 # Scenario 3 (omitted spatially clustered covariate) ---------------------------
 # Coefficient Bias
-load('mc_results/scenario3_range_rho.rda')
+load('mc_results/scenario3_range_theta_wz.rda')
 rmse_s3_range_df <- data.frame()
-for (i in names(s3_rho_range_under_list)) {
+for (i in names(s3_theta_wz_range_under_list)) {
     message(i)
-    rmse_temp <- s3_rho_range_under_list[[i]][['rmse']]
-    rmse_temp <- cbind(rmse_temp, data.frame(rho = as.numeric(i),
+    rmse_temp <- s3_theta_wz_range_under_list[[i]][['rmse']]
+    rmse_temp <- cbind(rmse_temp, data.frame(theta_wz = as.numeric(i),
                                              type = 'Scenario 3 under est.'))
     rmse_s3_range_df <- rbind(rmse_s3_range_df, rmse_temp)
 }
 
-for (i in names(s3_rho_range_over_list)) {
+for (i in names(s3_theta_wz_range_over_list)) {
     message(i)
-    rmse_temp <- s3_rho_range_over_list[[i]][['rmse']]
-    rmse_temp <- cbind(rmse_temp, data.frame(rho = as.numeric(i),
+    rmse_temp <- s3_theta_wz_range_over_list[[i]][['rmse']]
+    rmse_temp <- cbind(rmse_temp, data.frame(theta_wz = as.numeric(i),
                                              type = 'Scenario 3 over est.'))
     rmse_s3_range_df <- rbind(rmse_s3_range_df, rmse_temp)
 }
 
-rmse_s3_range_df$rho_log <- log(rmse_s3_range_df$rho)
+rmse_s3_range_df$theta_wz_log <- log(rmse_s3_range_df$theta_wz)
 
-rmse_s3_range <- ggplot(rmse_s3_range_df, aes(rho_log, rmse, group = variable,
+rmse_s3_range <- ggplot(rmse_s3_range_df, aes(theta_wz_log, rmse, group = variable,
                                               linetype = variable)) +
     facet_wrap(~type) +
     geom_line() +
     geom_hline(yintercept = 0, linetype = 'dotted') +
     scale_linetype(name = "") +
-    scale_x_continuous(breaks = unique(rmse_s3_range_df$rho_log),
-                       labels = as.numeric(names(s3_rho_range_under_list))) +
+    scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
+                       labels = as.numeric(names(s3_theta_wz_range_under_list))) +
  #   scale_y_continuous(limits = c(0, 2.5)) +
-    ylab('Bias (RMSE)\n') + xlab(expression(paste(rho, ' (log spaced scale)')))
+    ylab('Bias (RMSE)\n') + xlab(expression(paste(theta_wz, ' (log spaced scale)')))
 
 
 # False Discovery Rate (underestimated)
 fdr_s3_range_df1 <- data.frame()
-for (i in names(s3_rho_range_under_list)) {
+for (i in names(s3_theta_wz_range_under_list)) {
     message(i)
-    pvalue <- s3_rho_range_under_list[[i]][['pvalue']]
+    pvalue <- s3_theta_wz_range_under_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
-    fdr_temp <- cbind(pvalue, data.frame(rho = as.numeric(i),
+    fdr_temp <- cbind(pvalue, data.frame(theta_wz = as.numeric(i),
                                          type = 'Under est.'))
     fdr_s3_range_df1 <- rbind(fdr_s3_range_df1, fdr_temp)
 }
-fdr_s3_range_df1 <- fdr_s3_range_df1 %>% group_by(rho, type) %>%
+fdr_s3_range_df1 <- fdr_s3_range_df1 %>% group_by(theta_wz, type) %>%
     summarise(fdr = fdr_fun(pvalue))
 
 
 # False Discovery Rate (over estimated)
 fdr_s3_range_df2 <- data.frame()
-for (i in names(s3_rho_range_over_list)) {
+for (i in names(s3_theta_wz_range_over_list)) {
     message(i)
-    pvalue <- s3_rho_range_over_list[[i]][['pvalue']]
+    pvalue <- s3_theta_wz_range_over_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
-    fdr_temp <- cbind(pvalue, data.frame(rho = as.numeric(i),
+    fdr_temp <- cbind(pvalue, data.frame(theta_wz = as.numeric(i),
                                          type = 'Over est.'))
     fdr_s3_range_df2 <- rbind(fdr_s3_range_df2, fdr_temp)
 }
-fdr_s3_range_df2 <- fdr_s3_range_df2 %>% group_by(rho, type) %>%
+fdr_s3_range_df2 <- fdr_s3_range_df2 %>% group_by(theta_wz, type) %>%
     summarise(fdr = fdr_fun(pvalue))
 
 fdr_s3_range_df <- rbind(fdr_s3_range_df1, fdr_s3_range_df2)
-fdr_s3_range_df$rho_log <- log(fdr_s3_range_df$rho)
+fdr_s3_range_df$theta_wz_log <- log(fdr_s3_range_df$theta_wz)
 
-fdr_s3_range <- ggplot(fdr_s3_range_df, aes(rho_log, fdr, group = type,
+fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
                                             linetype = type)) +
     geom_line() +
     scale_linetype(name = "") +
     geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
-    scale_x_continuous(breaks = unique(rmse_s3_range_df$rho_log),
-                       labels = as.numeric(names(s3_rho_range_under_list))) +
+    scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
+                       labels = as.numeric(names(s3_theta_wz_range_under_list))) +
     scale_y_continuous(limits = c(0, 1)) +
-    ylab('TLSL False Discovery Rate\n') + xlab(expression(rho))
+    ylab('TLSL False Discovery Rate\n') + xlab(expression(theta[WZ]))
 
 pdf('mc_figures/rmse_fdr_scen_2_3.pdf', width = 15, height = 12)
     grid.arrange(rmse_s2_range, fdr_s2_range, rmse_s3_range, fdr_s3_range,

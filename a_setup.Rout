@@ -100,7 +100,7 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > alpha = 1
 > b1 = 2
 > b2 = 3
-> rho = 0.001
+> theta_wz = 0.001
 > AR <- phi <- 0.6
 > 
 > #### FUNCTIONS

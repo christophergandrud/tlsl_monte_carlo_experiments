@@ -1,15 +1,15 @@
-# TLSL Scenario 3 (range of rho) -----------------------------------------------
+# TLSL Scenario 3 (range of theta_wz) -----------------------------------------------
 
 simpleSetup::library_install(pkgs)
 theme_set(theme_bw())
 set.seed(seed)
 
-rho_range <- c(0.00001, 0.0001, 0.001, 0.01, 0.01)
+theta_wz_range <- c(0.00001, 0.0001, 0.001, 0.01, 0.01)
 
-s3_rho_range_under_list <- list()
-s3_rho_range_over_list <- list()
+s3_theta_wz_range_under_list <- list()
+s3_theta_wz_range_over_list <- list()
 
-one_run_rho <- function(n = nsims_less, rho, under) {
+one_run_theta_wz <- function(n = nsims_less, theta_wz, under) {
     out <- list()
     for (u in 1:n) {
         x1 <- sample(x = c(0, 1), size = N, replace = TRUE)
@@ -17,7 +17,7 @@ one_run_rho <- function(n = nsims_less, rho, under) {
         epsilon <- rnorm(N, 0, 1)
 
         # Generate response
-        y <- alpha + b1*x1 + rho*x2_df$X2 + epsilon
+        y <- alpha + b1*x1 + theta_wz*x2_df$X2 + epsilon
 
         # Create global monadic spatial weight for y
         comb <- data.frame(id = i, t = t, y = y,
@@ -48,23 +48,23 @@ one_run_rho <- function(n = nsims_less, rho, under) {
     return(out)
 }
 
-for (r in rho_range) {
+for (r in theta_wz_range) {
     message(r)
     r_char <- as.character(r)
-    s3_rho_range_under_list[[r_char]] <- one_run_rho(rho = r, under = TRUE)
-    s3_rho_range_under_list[[r_char]][['rmse']] <- rmse(s3_rho_range_under_list[[r_char]],
+    s3_theta_wz_range_under_list[[r_char]] <- one_run_theta_wz(theta_wz = r, under = TRUE)
+    s3_theta_wz_range_under_list[[r_char]][['rmse']] <- rmse(s3_theta_wz_range_under_list[[r_char]],
                                                         c('x1'), 'b1', b1)
 }
 
-for (r in rho_range) {
+for (r in theta_wz_range) {
     message(r)
     r_char <- as.character(r)
-    s3_rho_range_over_list[[r_char]] <- one_run_rho(rho = r, under = FALSE)
-    s3_rho_range_over_list[[r_char]][['rmse']] <- rmse(s3_rho_range_over_list[[r_char]],
-                                       c('x1', 'x2'), c('b1', 'rho'), c(b1, rho))
+    s3_theta_wz_range_over_list[[r_char]] <- one_run_theta_wz(theta_wz = r, under = FALSE)
+    s3_theta_wz_range_over_list[[r_char]][['rmse']] <- rmse(s3_theta_wz_range_over_list[[r_char]],
+                                       c('x1', 'x2'), c('b1', 'theta_wz'), c(b1, theta_wz))
 }
 
 
 # Save simulations -------------------------------------------------------------
-save(s3_rho_range_under_list, s3_rho_range_over_list,
-    file = 'mc_results/scenario3_range_rho.rda')
+save(s3_theta_wz_range_under_list, s3_theta_wz_range_over_list,
+    file = 'mc_results/scenario3_range_theta_wz.rda')

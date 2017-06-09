@@ -21,8 +21,8 @@ for (u in 1:nsims) {
         yinit <- rnorm(1, 0, 1)
 
         for(l in 1:length(y)){
-            if(l==1) y[l] <- alpha + b1*x1[l] + rho*x2_temp[l] + phi * yinit + epsilon[l]
-            if(l > 1) y[l] <- alpha + b1*x1[l] + rho*x2_temp[l] + phi * y[l-1] + epsilon[l]
+            if(l==1) y[l] <- alpha + b1*x1[l] + theta_wz*x2_temp[l] + phi * yinit + epsilon[l]
+            if(l > 1) y[l] <- alpha + b1*x1[l] + theta_wz*x2_temp[l] + phi * y[l-1] + epsilon[l]
         }
         temp <- data.frame(id = n, t = 1:t_per_indiv, y = y[-1],
                            x1 = x1[-1], x2 = x2_temp[-1],
@@ -61,7 +61,7 @@ for (u in 1:nsims) {
 # Find the root mean squared error for DGP variable coefficients
 s5_under_list[['rmse']] <- rmse(s5_under_list, c('x1'), 'b1', b1)
 s5_over_list[['rmse']] <- rmse(s5_over_list, c('x1', 'x2', 'ytm1'),
-                            c('b1', 'rho', 'phi'), c(b1, rho, phi))
+                            c('b1', 'theta_wz', 'phi'), c(b1, theta_wz, phi))
 
 # Save simulations -------------------------------------------------------------
 save(s5_over_list, s5_under_list, file = 'mc_results/scenario5.rda')

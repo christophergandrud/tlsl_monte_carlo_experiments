@@ -44,7 +44,7 @@ Type 'q()' to quit R.
 [1] "s2_over_list"  "s2_under_list"
 
 [[4]]
-[1] "s3_rho_range_under_list" "s3_rho_range_over_list" 
+[1] "s3_theta_wz_range_under_list" "s3_theta_wz_range_over_list" 
 
 [[5]]
 [1] "s3_over_list"  "s3_under_list"
@@ -60,8 +60,8 @@ Type 'q()' to quit R.
 > no_range_results <- all_results[!(all_results %in%
 +                                  c('s2_phi_range_over_list',
 +                                    's2_phi_range_under_list',
-+                                    's3_rho_range_over_list',
-+                                    's3_rho_range_under_list'))]
++                                    's3_theta_wz_range_over_list',
++                                    's3_theta_wz_range_under_list'))]
 > 
 > # False discovery rate formula
 > fdr_fun <- function(x) (sum(x < 0.05)/length(x))
