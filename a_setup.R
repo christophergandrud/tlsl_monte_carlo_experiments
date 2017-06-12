@@ -29,7 +29,7 @@ seed <- 1234
 num_cores <- 7
 
 # Number of simulations
-nsims = 1000
+nsims = 100
 
 nsims_less <- 100
 

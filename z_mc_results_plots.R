@@ -60,8 +60,16 @@ pvalues_df$scenario <- factor(pvalues_df$scenario, labels = p_labels)
 
 no_range_fdr <- pvalues_df %>% group_by(scenario) %>%
     summarise(fdr = fdr_fun(value))
-names(no_range_fdr) <- c('', 'False Discovery Rate')
-has_rownames(no_range_fdr)
+
+is.even <- function(x) x %% 2 == 0
+
+under <- no_range_fdr[is.even(1:nrow(no_range_fdr)), ]
+over <- no_range_fdr[!is.even(1:nrow(no_range_fdr)), ]
+
+no_range_fdr <- data.frame(Scenario = 1:5, Under = under[, 2],
+                           Over = over[, 2])
+names(no_range_fdr) <- c('Scenario No.', 'FDR (under)', 'FDR (over)')
+
 print(xtable(no_range_fdr), file = 'mc_tables/no_range_fdr.tex',
       floating = FALSE, row.names = FALSE)
 
@@ -164,7 +172,7 @@ rmse_s3_range <- ggplot(rmse_s3_range_df, aes(theta_wz_log, rmse, group = variab
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
  #   scale_y_continuous(limits = c(0, 2.5)) +
-    ylab('Bias (RMSE)\n') + xlab(expression(paste(theta_wz, ' (log spaced scale)')))
+    ylab('Bias (RMSE)\n') + xlab(expression(paste(theta[wz], ' (log spaced scale)')))
 
 
 # False Discovery Rate (underestimated)
@@ -211,3 +219,4 @@ pdf('mc_figures/rmse_fdr_scen_2_3.pdf', width = 15, height = 12)
     grid.arrange(rmse_s2_range, fdr_s2_range, rmse_s3_range, fdr_s3_range,
                  ncol = 2)
 dev.off()
+

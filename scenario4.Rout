@@ -4102,17 +4102,10 @@ Continuous location variable detected. Proximity found using method = euclidean.
 > s4_under_list[['rmse']] <- rmse(s4_under_list, c('x1'), 'b1', b1)
 > s4_over_list[['rmse']] <- rmse(s4_over_list, c('x1', 'x2', 'ytm1'),
 +                              c('b1', 'b2', 'phi'), c(b1, b2, phi))
-Warning messages:
-1: In phat - p :
-  longer object length is not a multiple of shorter object length
-2: In phat - p :
-  longer object length is not a multiple of shorter object length
-3: In phat - p :
-  longer object length is not a multiple of shorter object length
 > 
 > # Save simulations -------------------------------------------------------------
 > save(s4_over_list, s4_under_list, file = 'mc_results/scenario4.rda')
 > 
 > proc.time()
    user  system elapsed 
-390.501 215.812 310.764 
+422.818 244.589 330.670 

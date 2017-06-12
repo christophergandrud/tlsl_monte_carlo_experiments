@@ -4094,4 +4094,4 @@ Continuous location variable detected. Proximity found using method = euclidean.
 > 
 > proc.time()
    user  system elapsed 
-509.778 218.437 431.259 
+529.477 229.568 449.130 

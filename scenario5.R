@@ -49,7 +49,7 @@ for (u in 1:nsims) {
     sw <- subset(sw, t != 1:burnin)
 
     # Estimate models
-    s5_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
+    s5_under <- lm(y ~ x1 + lag_wy, data = sw)
 
     s5_over <- lm(y ~ x1 + x2 + ytm1 + lag_wy, data = sw)
 

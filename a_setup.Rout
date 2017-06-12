@@ -75,6 +75,8 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > # Number of simulations
 > nsims = 1000
 > 
+> nsims_less <- 100
+> 
 > # Burn in
 > burnin <- 2
 > 
@@ -139,10 +141,10 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 +     W <- as.matrix(dist(location))
 +     diag(W) <- 0
 +     x2_df <- data.frame()
-+     G <- vector()
++     Z <- vector()
 +     for (k in 1:tu) {
 +         g <- runif(n = obs_per_time, min = 0, max = 1)
-+         X2 <- c(G, (colSums(W * g) + rnorm(obs_per_time, 0, 1)))
++         X2 <- c(Z, (colSums(W * g) + rnorm(obs_per_time, 0, 1)))
 +         temp <- data.frame(i = 1:n_indiv, t = k, X2 = X2, location = location)
 +         x2_df <- rbind(x2_df, temp)
 +     }
@@ -212,7 +214,6 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > # Root mean squared error
 > rmse <- function(results, vars, param_labels, p) {
-+ browser()
 +     coefs <- extract_element(results, type = 'coefs')
 +     rmse_fun__ <- function(phat, p) sqrt(mean((phat - p)^2))
 +     rmse_df <- data.frame()
@@ -262,4 +263,4 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > proc.time()
    user  system elapsed 
-  2.329   0.178   2.687 
+  2.281   0.175   2.962 

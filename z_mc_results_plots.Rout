@@ -35,24 +35,27 @@ Type 'q()' to quit R.
 > results_files <- list.files('mc_results')
 > lapply(sprintf('mc_results/%s', results_files), load, .GlobalEnv)
 [[1]]
-[1] "s1_over_list"  "s1_under_list"
+[1] "s2_morans_fdr" "s3_morans_fdr"
 
 [[2]]
-[1] "s2_phi_range_under_list" "s2_phi_range_over_list" 
+[1] "s1_over_list"  "s1_under_list"
 
 [[3]]
-[1] "s2_over_list"  "s2_under_list"
+[1] "s2_phi_range_under_list" "s2_phi_range_over_list" 
 
 [[4]]
-[1] "s3_theta_wz_range_under_list" "s3_theta_wz_range_over_list" 
+[1] "s2_over_list"  "s2_under_list"
 
 [[5]]
-[1] "s3_over_list"  "s3_under_list"
+[1] "s3_theta_wz_range_under_list" "s3_theta_wz_range_over_list" 
 
 [[6]]
-[1] "s4_over_list"  "s4_under_list"
+[1] "s3_over_list"  "s3_under_list"
 
 [[7]]
+[1] "s4_over_list"  "s4_under_list"
+
+[[8]]
 [1] "s5_over_list"  "s5_under_list"
 
 > rm(results_files)

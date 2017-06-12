@@ -92,7 +92,7 @@ The following object is masked from ‘package:dplyr’:
 +     sw <- subset(sw, t != 1:burnin)
 + 
 +     # Estimate models
-+     s5_under <- lm(y ~ x1 + x2 + lag_wy, data = sw)
++     s5_under <- lm(y ~ x1 + lag_wy, data = sw)
 + 
 +     s5_over <- lm(y ~ x1 + x2 + ytm1 + lag_wy, data = sw)
 + 
@@ -4105,17 +4105,10 @@ Continuous location variable detected. Proximity found using method = euclidean.
 > s5_under_list[['rmse']] <- rmse(s5_under_list, c('x1'), 'b1', b1)
 > s5_over_list[['rmse']] <- rmse(s5_over_list, c('x1', 'x2', 'ytm1'),
 +                             c('b1', 'theta_wz', 'phi'), c(b1, theta_wz, phi))
-Warning messages:
-1: In phat - p :
-  longer object length is not a multiple of shorter object length
-2: In phat - p :
-  longer object length is not a multiple of shorter object length
-3: In phat - p :
-  longer object length is not a multiple of shorter object length
 > 
 > # Save simulations -------------------------------------------------------------
 > save(s5_over_list, s5_under_list, file = 'mc_results/scenario5.rda')
 > 
 > proc.time()
    user  system elapsed 
-640.424 247.965 567.842 
+668.767 254.579 593.544 
