@@ -15,8 +15,8 @@ if (!('spatialWeights' %in% installed.packages()[,1]))
 simpleSetup::library_install(pkgs[-1])
 
 # Set working directory
-dirs <- c('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/',
-          '/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments')
+dirs <- c('/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments',
+          '~/Dropbox/TLSL/tlsl_monte_carlo_experiments/')
 set_valid_wd(dirs)
 
 # Use BW plotting theme

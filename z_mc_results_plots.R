@@ -82,7 +82,7 @@ for (i in names(s2_phi_range_under_list)) {
     message(i)
     rmse_temp <- s2_phi_range_under_list[[i]][['rmse']]
     rmse_temp <- cbind(rmse_temp, data.frame(phi = as.numeric(i),
-                                             type = 'Scenario 2 under est.'))
+                                             type = 'Scenario 2 under estimate'))
     rmse_s2_range_df <- rbind(rmse_s2_range_df, rmse_temp)
 }
 
@@ -90,14 +90,15 @@ for (i in names(s2_phi_range_over_list)) {
     message(i)
     rmse_temp <- s2_phi_range_over_list[[i]][['rmse']]
     rmse_temp <- cbind(rmse_temp, data.frame(phi = as.numeric(i),
-                                             type = 'Scenario 2 over est.'))
+                                             type = 'Scenario 2 over estimate'))
     rmse_s2_range_df <- rbind(rmse_s2_range_df, rmse_temp)
 }
 
-rmse_s2_range <- ggplot(rmse_s2_range_df, aes(phi, rmse, group = variable, linetype = variable)) +
+rmse_s2_range <- ggplot(rmse_s2_range_df, aes(phi, rmse, group = variable, 
+                                              linetype = variable)) +
     facet_wrap(~type) +
     geom_line() +
-    scale_linetype(name = "") +
+    scale_linetype(name = "", labels = expression(hat(beta)[1], hat(beta)[2])) +
     geom_hline(yintercept = 0, linetype = 'dotted') +
 #    scale_y_continuous(limits = c(0, 2.5)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
@@ -110,7 +111,7 @@ for (i in names(s2_phi_range_under_list)) {
     pvalue <- s2_phi_range_under_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
     fdr_temp <- cbind(pvalue, data.frame(phi = as.numeric(i),
-                                         type = 'Under est.'))
+                                         type = 'Under estimate'))
     fdr_s2_range_df1 <- rbind(fdr_s2_range_df1, fdr_temp)
 }
 fdr_s2_range_df1 <- fdr_s2_range_df1 %>% group_by(phi, type) %>%
@@ -124,7 +125,7 @@ for (i in names(s2_phi_range_over_list)) {
     pvalue <- s2_phi_range_over_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
     fdr_temp <- cbind(pvalue, data.frame(phi = as.numeric(i),
-                                         type = 'Over est.'))
+                                         type = 'Over estimate'))
     fdr_s2_range_df2 <- rbind(fdr_s2_range_df2, fdr_temp)
 }
 fdr_s2_range_df2 <- fdr_s2_range_df2 %>% group_by(phi, type) %>%
@@ -138,6 +139,7 @@ fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, linetype = t
     geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
     scale_y_continuous(limits = c(0, 1)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
+    ggtitle("Scenario 2") +
     ylab('TLSL False Discovery Rate\n') + xlab(expression(phi))
 
 
@@ -149,7 +151,7 @@ for (i in names(s3_theta_wz_range_under_list)) {
     message(i)
     rmse_temp <- s3_theta_wz_range_under_list[[i]][['rmse']]
     rmse_temp <- cbind(rmse_temp, data.frame(theta_wz = as.numeric(i),
-                                             type = 'Scenario 3 under est.'))
+                                             type = 'Scenario 3 under estimate'))
     rmse_s3_range_df <- rbind(rmse_s3_range_df, rmse_temp)
 }
 
@@ -157,7 +159,7 @@ for (i in names(s3_theta_wz_range_over_list)) {
     message(i)
     rmse_temp <- s3_theta_wz_range_over_list[[i]][['rmse']]
     rmse_temp <- cbind(rmse_temp, data.frame(theta_wz = as.numeric(i),
-                                             type = 'Scenario 3 over est.'))
+                                             type = 'Scenario 3 over estimate'))
     rmse_s3_range_df <- rbind(rmse_s3_range_df, rmse_temp)
 }
 
@@ -168,7 +170,7 @@ rmse_s3_range <- ggplot(rmse_s3_range_df, aes(theta_wz_log, rmse, group = variab
     facet_wrap(~type) +
     geom_line() +
     geom_hline(yintercept = 0, linetype = 'dotted') +
-    scale_linetype(name = "") +
+    scale_linetype(name = "", labels = expression(hat(beta)[1], hat(theta)[wz])) +
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
  #   scale_y_continuous(limits = c(0, 2.5)) +
@@ -182,7 +184,7 @@ for (i in names(s3_theta_wz_range_under_list)) {
     pvalue <- s3_theta_wz_range_under_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
     fdr_temp <- cbind(pvalue, data.frame(theta_wz = as.numeric(i),
-                                         type = 'Under est.'))
+                                         type = 'Under estimate'))
     fdr_s3_range_df1 <- rbind(fdr_s3_range_df1, fdr_temp)
 }
 fdr_s3_range_df1 <- fdr_s3_range_df1 %>% group_by(theta_wz, type) %>%
@@ -196,7 +198,7 @@ for (i in names(s3_theta_wz_range_over_list)) {
     pvalue <- s3_theta_wz_range_over_list[[i]][['pvalue']]
     pvalue <- pvalue[names(pvalue) == 'lag_wy']
     fdr_temp <- cbind(pvalue, data.frame(theta_wz = as.numeric(i),
-                                         type = 'Over est.'))
+                                         type = 'Over estimate'))
     fdr_s3_range_df2 <- rbind(fdr_s3_range_df2, fdr_temp)
 }
 fdr_s3_range_df2 <- fdr_s3_range_df2 %>% group_by(theta_wz, type) %>%
@@ -213,10 +215,11 @@ fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
     scale_y_continuous(limits = c(0, 1)) +
+    ggtitle("Scenario 3") +
     ylab('TLSL False Discovery Rate\n') + xlab(expression(theta[WZ]))
 
 pdf('mc_figures/rmse_fdr_scen_2_3.pdf', width = 15, height = 12)
-    grid.arrange(rmse_s2_range, fdr_s2_range, rmse_s3_range, fdr_s3_range,
+    grid.arrange(fdr_s2_range, rmse_s2_range, fdr_s3_range, rmse_s3_range,
                  ncol = 2)
 dev.off()
 
