@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 
 library(xfun)
-pkg_attach2("ggplot2", "ggpubr", "xtable")
+pkg_attach2("dplyr", "ggplot2", "ggpubr", "xtable")
 theme_set(theme_minimal())
 
 # Load MC results

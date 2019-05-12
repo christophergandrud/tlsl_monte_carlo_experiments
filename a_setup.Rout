@@ -1,7 +1,7 @@
 
-R version 3.4.0 (2017-04-21) -- "You Stupid Darkness"
-Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin16.5.0 (64-bit)
+R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -26,14 +26,22 @@ Type 'q()' to quit R.
 > # ------------------------------------------------------------------------------
 > 
 > # Install and load required packages
-> library(simpleSetup)
+> library(xfun)
+
+Attaching package: ‘xfun’
+
+The following objects are masked from ‘package:base’:
+
+    attr, isFALSE
+
 > pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
-+           'gridExtra', 'ape', 'tibble', 'xtable')
++           'ggpubr', 'ape', 'tibble', 'xtable')
 > 
 > if (!('spatialWeights' %in% installed.packages()[,1]))
 +     devtools::install_github('christophergandrud/spatialWeights')
 > 
-> xfun::pkg_attach2(pkgs[-1])
+> pkg_attach2(pkgs[-1])
+Loading required package: carData
 
 Attaching package: ‘dplyr’
 
@@ -49,19 +57,23 @@ The following objects are masked from ‘package:base’:
 
     intersect, setdiff, setequal, union
 
+Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
+Loading required package: magrittr
 
-Attaching package: ‘gridExtra’
+Attaching package: ‘ape’
 
-The following object is masked from ‘package:dplyr’:
+The following object is masked from ‘package:ggpubr’:
 
-    combine
+    rotate
 
 > 
-> # Set working directory
-> dirs <- c('~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/',
-+           '/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments')
-> set_valid_wd(dirs)
-Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experiments/
+> # Set working directory. Change as needed.
+> # dirs <- c('~/Dropbox/TLSL/tlsl_monte_carlo_experiments/')
+> # setwd(dirs)
 > 
 > # Use BW plotting theme
 > theme_set(theme_minimal())
@@ -70,10 +82,10 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > seed <- 1234
 > 
 > # Number of cores
-> num_cores <- 7
+> num_cores <- 4
 > 
 > # Number of simulations
-> nsims = 1000
+> nsims = 100
 > 
 > nsims_less <- 100
 > 
@@ -263,4 +275,4 @@ Working directory set to: ~/Dropbox/dynsimRwriteUp/tlsl/tlsl_monte_carlo_experim
 > 
 > proc.time()
    user  system elapsed 
-  2.281   0.175   2.962 
+  1.258   0.121   1.376 

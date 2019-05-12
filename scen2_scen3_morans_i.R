@@ -117,5 +117,5 @@ s3_m_fdr_plot <- ggplot(s3_morans_fdr, aes(theta, morans_i_fdr)) +
 
 
 pdf(file = 'mc_figures/morans_i_figures.pdf', width = 9, height = 4.5)
-    grid.arrange(s2_m_fdr_plot, s3_m_fdr_plot, ncol = 2)
+    ggarrange(s2_m_fdr_plot, s3_m_fdr_plot, ncol = 2)
 dev.off()

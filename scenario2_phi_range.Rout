@@ -1,7 +1,7 @@
 
-R version 3.4.0 (2017-04-21) -- "You Stupid Darkness"
-Copyright (C) 2017 The R Foundation for Statistical Computing
-Platform: x86_64-apple-darwin16.5.0 (64-bit)
+R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -17,11 +17,17 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
 [Previously saved workspace restored]
 
 > # TLSL Scenario 2 (range of phi) -----------------------------------------------
 > 
 > xfun::pkg_attach2(pkgs)
+Loading required package: carData
 
 Attaching package: ‘dplyr’
 
@@ -37,12 +43,13 @@ The following objects are masked from ‘package:base’:
 
     intersect, setdiff, setequal, union
 
+Loading required package: magrittr
 
-Attaching package: ‘gridExtra’
+Attaching package: ‘ape’
 
-The following object is masked from ‘package:dplyr’:
+The following object is masked from ‘package:ggpubr’:
 
-    combine
+    rotate
 
 > theme_set(theme_minimal())
 > set.seed(seed)
@@ -4130,4 +4137,4 @@ Continuous location variable detected. Proximity found using method = euclidean.
 > 
 > proc.time()
    user  system elapsed 
-344.854 268.760 223.370 
+213.070 131.163 170.542 
