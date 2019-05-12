@@ -17,6 +17,11 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+Registered S3 methods overwritten by 'ggplot2':
+  method         from 
+  [.quosures     rlang
+  c.quosures     rlang
+  print.quosures rlang
 [Previously saved workspace restored]
 
 > # ------------------------------------------------------------------------------
@@ -57,11 +62,6 @@ The following objects are masked from ‘package:base’:
 
     intersect, setdiff, setequal, union
 
-Registered S3 methods overwritten by 'ggplot2':
-  method         from 
-  [.quosures     rlang
-  c.quosures     rlang
-  print.quosures rlang
 Loading required package: magrittr
 
 Attaching package: ‘ape’
@@ -275,4 +275,4 @@ The following object is masked from ‘package:ggpubr’:
 > 
 > proc.time()
    user  system elapsed 
-  1.258   0.121   1.376 
+  1.514   0.136   1.748 

@@ -56,7 +56,7 @@ s2_morans_fdr <- s2_moransi %>% group_by(phi) %>%
     summarise(morans_i_fdr = fdr_fun(morans_i_p_value))
 
 s2_m_fdr_plot <- ggplot(s2_morans_fdr, aes(phi, morans_i_fdr)) +
-    geom_line() +
+    geom_line(size = 1) +
     scale_y_continuous(limits = c(0, 0.5), breaks = mbreaks) +
     geom_hline(yintercept = 0.05, linetype = 'dotted') +
     ylab('FDR\n') +
@@ -109,7 +109,7 @@ s3_morans_fdr <- s3_moransi %>% group_by(theta) %>%
 save(s2_morans_fdr, s3_morans_fdr, file = 'mc_results/morans_i_fdr.rda')
 
 s3_m_fdr_plot <- ggplot(s3_morans_fdr, aes(theta, morans_i_fdr)) +
-    geom_line() +
+    geom_line(size = 1) +
     scale_y_continuous(limits = c(0, 0.5), breaks = mbreaks) +
     geom_hline(yintercept = 0.05, linetype = 'dotted') +
     ylab('FDR\n') + xlab(expression(theta[WZ])) +

@@ -120,15 +120,16 @@ fdr_s2_range_df2 <- fdr_s2_range_df2 %>% group_by(phi, type) %>%
 
 fdr_s2_range_df <- rbind(fdr_s2_range_df1, fdr_s2_range_df2)
 
-fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, linetype = type)) +
-    geom_line() +
-    scale_linetype(name = "") +
-    geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
-    scale_y_continuous(limits = c(0, 1)) +
-    scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
-    ggtitle("Scenario 2") +
-    ylab('') + 
-    xlab(expression(phi))
+# fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, 
+#                                             linetype = type)) +
+#     geom_line(size = 1) +
+#     scale_linetype(name = "") +
+#     geom_hline(yintercept = 0.05, linetype = 'dotted') +
+#     scale_y_continuous(limits = c(0, 1)) +
+#     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
+#     ggtitle("Scenario 2") +
+#     ylab('') + 
+#     xlab(expression(phi))
 
 
 # Scenario 3 (omitted spatially clustered covariate) ---------------------------
@@ -195,11 +196,56 @@ fdr_s3_range_df2 <- fdr_s3_range_df2 %>% group_by(theta_wz, type) %>%
 fdr_s3_range_df <- rbind(fdr_s3_range_df1, fdr_s3_range_df2)
 fdr_s3_range_df$theta_wz_log <- log(fdr_s3_range_df$theta_wz)
 
-fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
+# fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
+#                                             linetype = type)) +
+#     geom_line(size = 1) +
+#     scale_linetype(name = "") +
+#     geom_hline(yintercept = 0.05, linetype = 'dotted') +
+#     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
+#                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
+#     scale_y_continuous(limits = c(0, 1)) +
+#     ggtitle("Scenario 3") +
+#     ylab('') + 
+#     xlab(expression(theta[WZ]))
+
+# Add Moran's I false discovery rate ------
+load('mc_results/morans_i_fdr.rda') # created in scen2_scen3_morans_i.R
+
+# Scenario 2
+# Clean up to merge
+s2_morans_fdr$type <- "Moran's I"
+s2_morans_fdr <- s2_morans_fdr %>% 
+  dplyr::rename(fdr = morans_i_fdr)
+fdr_s2_range_df <- bind_rows(fdr_s2_range_df, s2_morans_fdr)
+fdr_s2_sub_df <- subset(fdr_s2_range_df, !(type %in% "Over estimate"))
+
+fdr_s2_range <- ggplot(fdr_s2_sub_df, aes(phi, fdr, group = type, 
                                             linetype = type)) +
-    geom_line() +
+    geom_line(size = 1) +
     scale_linetype(name = "") +
-    geom_hline(yintercept = 0.05, linetype = 'dotted', color = 'grey') +
+    geom_hline(yintercept = 0.05, linetype = 'dotted') +
+    scale_y_continuous(limits = c(0, 1)) +
+    scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
+    ggtitle("Scenario 2") +
+    ylab('') + 
+    xlab(expression(phi))
+
+# Scenario 3 
+# Clean up to merge
+s3_morans_fdr$type <- "Moran's I"
+s3_morans_fdr <- s3_morans_fdr %>% 
+                    dplyr::rename(theta_wz = theta) %>%
+                    dplyr::rename(fdr = morans_i_fdr)
+s3_morans_fdr$theta_wz_log <- log(s3_morans_fdr$theta_wz)
+fdr_s3_range_df <- bind_rows(fdr_s3_range_df, s3_morans_fdr)
+fdr_s3_sub_df <- subset(fdr_s3_range_df, !(type %in% "Over estimate"))
+
+# Plot
+fdr_s3_range <- ggplot(fdr_s3_sub_df, aes(theta_wz_log, fdr, group = type,
+                                            linetype = type)) +
+    geom_line(size = 1) +
+    scale_linetype(name = "") +
+    geom_hline(yintercept = 0.05, linetype = 'dotted') +
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
     scale_y_continuous(limits = c(0, 1)) +
@@ -211,7 +257,7 @@ fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
 p_fdr_combined <-ggarrange(fdr_s2_range, fdr_s3_range,
                            common.legend = TRUE, legend = "bottom", ncol = 2)
 p_fdr_combined <- annotate_figure(p_fdr_combined, left = "TLSL False Discovery Rate")
-pdf('mc_figures/fdr_scen_2_3.pdf', width = 12, height = 7)
+pdf('mc_figures/fdr_scen_2_3.pdf', width = 10, height = 6)
   p_fdr_combined
 dev.off()
 
