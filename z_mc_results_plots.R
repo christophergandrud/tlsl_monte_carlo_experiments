@@ -24,6 +24,9 @@ no_range_results <- all_results[!(all_results %in%
 # False discovery rate formula
 fdr_fun <- function(x) (sum(x < 0.05)/length(x))
 
+# Y-axis breas
+y_breaks <- c(0, 0.05, 0.25, 0.5, 0.75, 1)
+
 # Plot p-values for TLSL -------------------------------------------------------
 pvalues_df <- data.frame()
 for (i in no_range_results) {
@@ -224,7 +227,8 @@ fdr_s2_range <- ggplot(fdr_s2_sub_df, aes(phi, fdr, group = type,
     geom_line(size = 1) +
     scale_linetype(name = "") +
     geom_hline(yintercept = 0.05, linetype = 'dotted') +
-    scale_y_continuous(limits = c(0, 1)) +
+    scale_y_continuous(limits = c(0, 1),
+                       breaks = y_breaks) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
     ggtitle("Scenario 2") +
     ylab('') + 
@@ -248,7 +252,8 @@ fdr_s3_range <- ggplot(fdr_s3_sub_df, aes(theta_wz_log, fdr, group = type,
     geom_hline(yintercept = 0.05, linetype = 'dotted') +
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
-    scale_y_continuous(limits = c(0, 1)) +
+    scale_y_continuous(limits = c(0, 1), 
+                       breaks = y_breaks) +
     ggtitle("Scenario 3") +
     ylab('') + 
     xlab(expression(theta[WZ]))
