@@ -5,28 +5,27 @@
 # ------------------------------------------------------------------------------
 
 # Install and load required packages
-library(simpleSetup)
+library(xfun)
 pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
-          'gridExtra', 'ape', 'tibble', 'xtable')
+          'ggpubr', 'ape', 'tibble', 'xtable')
 
 if (!('spatialWeights' %in% installed.packages()[,1]))
     devtools::install_github('christophergandrud/spatialWeights')
 
-simpleSetup::library_install(pkgs[-1])
+pkg_attach2(pkgs[-1])
 
-# Set working directory
-dirs <- c('/nfs/home/C/cgandrud/git_repositories/tlsl_monte_carlo_experiments',
-          '~/Dropbox/TLSL/tlsl_monte_carlo_experiments/')
-set_valid_wd(dirs)
+# Set working directory. Change as needed.
+# dirs <- c('~/Dropbox/TLSL/tlsl_monte_carlo_experiments/')
+# setwd(dirs)
 
 # Use BW plotting theme
-theme_set(theme_bw())
+theme_set(theme_minimal())
 
 # Set seed
 seed <- 1234
 
 # Number of cores
-num_cores <- 7
+num_cores <- 4
 
 # Number of simulations
 nsims = 100

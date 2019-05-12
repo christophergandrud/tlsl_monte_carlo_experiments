@@ -1,7 +1,7 @@
 # TLSL Scenario 3 (range of theta_wz) -----------------------------------------------
 
-simpleSetup::library_install(pkgs)
-theme_set(theme_bw())
+xfun::pkg_attach2(pkgs)
+theme_set(theme_minimal())
 set.seed(seed)
 
 theta_wz_range <- c(0.00001, 0.0001, 0.001, 0.01, 0.01)

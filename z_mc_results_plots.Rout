@@ -27,7 +27,7 @@ Type 'q()' to quit R.
 > 
 > library(xtable)
 > library(ggplot2)
-> theme_set(theme_bw())
+> theme_set(theme_minimal())
 > 
 > # Load MC results
 > rm_lists <- (Filter( function(x) 'list' %in% class( get(x) ), ls() ))

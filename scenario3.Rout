@@ -20,7 +20,7 @@ Type 'q()' to quit R.
 [Previously saved workspace restored]
 
 > # TLSL Scenario 3 --------------------------------------------------------------
-> simpleSetup::library_install(pkgs)
+> xfun::pkg_attach2(pkgs)
 
 Attaching package: ‘dplyr’
 
@@ -43,7 +43,7 @@ The following object is masked from ‘package:dplyr’:
 
     combine
 
-> theme_set(theme_bw())
+> theme_set(theme_minimal())
 > 
 > s3_under_list <- list()
 > s3_over_list <- list()

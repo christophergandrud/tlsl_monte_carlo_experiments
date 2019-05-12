@@ -1,7 +1,7 @@
 # TLSL Scenario 2 (range of phi) -----------------------------------------------
 
-simpleSetup::library_install(pkgs)
-theme_set(theme_bw())
+xfun::pkg_attach2(pkgs)
+theme_set(theme_minimal())
 set.seed(seed)
 
 phi_range <- seq(0.1, 0.9, by = 0.2)

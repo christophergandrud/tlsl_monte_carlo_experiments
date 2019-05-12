@@ -4,9 +4,9 @@
 # MIT License
 # ------------------------------------------------------------------------------
 
-library(xtable)
-library(ggplot2)
-theme_set(theme_bw())
+library(xfun)
+pkg_attach2("ggplot2", "ggpubr", "xtable")
+theme_set(theme_minimal())
 
 # Load MC results
 rm_lists <- (Filter( function(x) 'list' %in% class( get(x) ), ls() ))
@@ -44,19 +44,6 @@ p_labels <- c('Scenario 1 (over)', 'Scenario 1 (under)',
               'Scenario 4 (over)', 'Scenario 4 (under)',
               'Scenario 5 (over)', 'Scenario 5 (under)')
 pvalues_df$scenario <- factor(pvalues_df$scenario, labels = p_labels)
-
-#ggplot(pvalues_df, aes(scenario, value, group = scenario,
-#                       color = Type)) +
-#    geom_boxplot() +
-#    geom_point(alpha = 0.2, position = 'jitter') +
-#    geom_hline(yintercept = 0.05, linetype = 'dashed', color = 'red', size = 1) +
-#    geom_hline(yintercept = 0.1, linetype = 'dotted', color = 'red', size = 1) +
-#    scale_y_continuous(breaks = c(0, 0.05, 0.1, 0.5, 1), limits = c(0, 1)) +
-#    scale_color_manual(values =  c('#bdbdbd', '#636363')) +
-#    coord_flip() +
-#    ylab('p-values for temporally-lagged spatial lag') + xlab('')
-
-# ggsave('mc_figures/mc_lagwy_pvalues.pdf', height = 12, width = 10)
 
 no_range_fdr <- pvalues_df %>% group_by(scenario) %>%
     summarise(fdr = fdr_fun(value))
@@ -102,7 +89,7 @@ rmse_s2_range <- ggplot(rmse_s2_range_df, aes(phi, rmse, group = variable,
     geom_hline(yintercept = 0, linetype = 'dotted') +
 #    scale_y_continuous(limits = c(0, 2.5)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
-    ylab('Bias (RMSE)\n') + xlab(expression(phi))
+    ylab('') + xlab(expression(phi))
 
 # False Discovery Rate (underestimated)
 fdr_s2_range_df1 <- data.frame()
@@ -140,7 +127,8 @@ fdr_s2_range <- ggplot(fdr_s2_range_df, aes(phi, fdr, group = type, linetype = t
     scale_y_continuous(limits = c(0, 1)) +
     scale_x_continuous(breaks = as.numeric(names(s2_phi_range_under_list))) +
     ggtitle("Scenario 2") +
-    ylab('TLSL False Discovery Rate\n') + xlab(expression(phi))
+    ylab('') + 
+    xlab(expression(phi))
 
 
 # Scenario 3 (omitted spatially clustered covariate) ---------------------------
@@ -174,7 +162,7 @@ rmse_s3_range <- ggplot(rmse_s3_range_df, aes(theta_wz_log, rmse, group = variab
     scale_x_continuous(breaks = unique(rmse_s3_range_df$theta_wz_log),
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
  #   scale_y_continuous(limits = c(0, 2.5)) +
-    ylab('Bias (RMSE)\n') + xlab(expression(paste(theta[wz], ' (log spaced scale)')))
+    ylab('') + xlab(expression(paste(theta[wz], ' (log spaced scale)')))
 
 
 # False Discovery Rate (underestimated)
@@ -216,10 +204,22 @@ fdr_s3_range <- ggplot(fdr_s3_range_df, aes(theta_wz_log, fdr, group = type,
                        labels = as.numeric(names(s3_theta_wz_range_under_list))) +
     scale_y_continuous(limits = c(0, 1)) +
     ggtitle("Scenario 3") +
-    ylab('TLSL False Discovery Rate\n') + xlab(expression(theta[WZ]))
+    ylab('') + 
+    xlab(expression(theta[WZ]))
 
-pdf('mc_figures/rmse_fdr_scen_2_3.pdf', width = 15, height = 12)
-    grid.arrange(fdr_s2_range, rmse_s2_range, fdr_s3_range, rmse_s3_range,
-                 ncol = 2)
+# Plot FDRs for scenarios 2 and 3 ----
+p_fdr_combined <-ggarrange(fdr_s2_range, fdr_s3_range,
+                           common.legend = TRUE, legend = "bottom", ncol = 2)
+p_fdr_combined <- annotate_figure(p_fdr_combined, left = "TLSL False Discovery Rate")
+pdf('mc_figures/fdr_scen_2_3.pdf', width = 12, height = 7)
+  p_fdr_combined
+dev.off()
+
+# Plot bias for scenarios 2 and 3 ----
+p_rmse_combined <-ggarrange(rmse_s2_range, rmse_s3_range, ncol = 2)
+p_rmse_combined <- annotate_figure(p_rmse_combined, left = "Bias (RMSE)")
+
+pdf('mc_figures/rmse_scen_2_3.pdf', width = 12, height = 7)
+  p_rmse_combined
 dev.off()
 

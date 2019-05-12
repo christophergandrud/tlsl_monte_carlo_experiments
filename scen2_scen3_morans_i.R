@@ -4,8 +4,8 @@
 fdr_fun <- function(x) (sum(x < 0.05)/length(x))
 
 # Scenario 2 -------------------------------------------------------------------
-simpleSetup::library_install(pkgs)
-theme_set(theme_bw())
+xfun::pkg_attach2(pkgs)
+theme_set(theme_minimal())
 set.seed(seed)
 mbreaks = c(0, 0.05, 0.1, 0.3, 0.5)
 

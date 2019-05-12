@@ -1,6 +1,6 @@
 # TLSL Scenario 2 --------------------------------------------------------------
-simpleSetup::library_install(pkgs)
-theme_set(theme_bw())
+xfun::pkg_attach2(pkgs)
+theme_set(theme_minimal())
 
 s2_under_list <- list()
 s2_over_list <- list()
