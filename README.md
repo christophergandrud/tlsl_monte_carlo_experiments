@@ -22,5 +22,5 @@ make
 
 ### Manually without GNU make
 
-You can also manually run each R file one at a time. Do this in the alphabetical order of the `.R` file names, e.g. start with `a_setup.R` and end with `z_mc_results_plots.R`.   
+You can also manually run each R file one at a time. Do this in the alphabetical order of the `.R` file names, i.e. start with `a_setup.R` and end with `z_mc_results_plots.R`.   
 
