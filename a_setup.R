@@ -5,6 +5,8 @@
 # ------------------------------------------------------------------------------
 
 # Install and load required packages
+if (!("xfun" %in% installed.packages()[, 1])) install.packages("xfun")
+
 library(xfun)
 pkgs <- c('devtools', 'spatialWeights', 'car', 'dplyr', 'Matrix', 'ggplot2',
           'ggpubr', 'ape', 'tibble', 'xtable')
