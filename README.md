@@ -9,7 +9,9 @@ How Scholars Falsely Infer Policy Diffusion from Model Misspecification".
 
 ## Reproduction instructions
 
-The simulations are run in R and coordinated with GNU make. To replicate the entire analysis, type into your terminal:
+### With GNU make
+
+The simulations are run in R and coordinated with GNU make. If you have R and make installed, replicate the entire analysis by typing into your terminal:
 
 ```bash
 cd THE_DIRECTORY_WITH_THE_REPOSITORY
@@ -18,5 +20,7 @@ make clean
 make
 ```
 
+### Manually without GNU make
 
+You can also manually run each R file one at a time. Do this in the alphabetical order of the `.R` file names, e.g. start with `a_setup.R` and end with `z_mc_results_plots.R`.   
 
